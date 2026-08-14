@@ -131,69 +131,6 @@ export default function Clientele() {
         </div>
       </section>
 
-      {/* ---------------- Why they buy ---------------- */}
-      <section className="bg-white section-y">
-        <div className="container-k">
-          <Reveal>
-            <SectionHeading
-              eyebrow="Why they specify KONIN"
-              title={
-                <>
-                  One order, one works, <span className="text-gradient">one answer.</span>
-                </>
-              }
-            />
-          </Reveal>
-
-          <Stagger className="mt-10 grid gap-5 lg:grid-cols-3" step={0.1}>
-            {PROOF.map(({ icon: Icon, title, body }, i) => (
-              <StaggerItem
-                key={title}
-                direction={rowDirection(i, PROOF.length)}
-                className="h-full"
-              >
-                <TiltCard className="h-full" max={7} lift={7}>
-                  <div className="flex h-full flex-col rounded-2xl border border-steel-150 bg-white p-7 shadow-e1 transition-shadow duration-500 group-hover:border-brand-200 group-hover:shadow-e3">
-                    <span className="grid size-11 place-items-center rounded-xl border border-brand-100 bg-linear-to-b from-brand-50 to-white text-brand-700 shadow-e1 transition-all duration-500 group-hover:border-transparent group-hover:from-brand-600 group-hover:to-brand-500 group-hover:text-white group-hover:shadow-brand">
-                      <Icon className="size-5" aria-hidden="true" />
-                    </span>
-                    <h3 className="mt-5 font-display text-lg leading-tight font-bold text-ink-900">
-                      {title}
-                    </h3>
-                    <p className="mt-3 text-[14px] leading-relaxed text-steel-600">{body}</p>
-                  </div>
-                </TiltCard>
-              </StaggerItem>
-            ))}
-          </Stagger>
-        </div>
-      </section>
-
-      {/* ---------------- Where they are ---------------- */}
-      <section className="tone-tint-deep border-t border-steel-150 section-y-sm">
-        <div className="container-k">
-          <div className="grid gap-8 lg:grid-cols-12 lg:gap-12">
-            <div className="lg:col-span-5">
-              <Reveal direction="from-left">
-                <SectionHeading
-                  eyebrow="Where we supply"
-                  title="Across India, and growing"
-                  lead={company.marketsNote}
-                />
-              </Reveal>
-            </div>
-            <div className="lg:col-span-7">
-              <Stagger as="ul" className="flex flex-wrap gap-2.5" step={0.04}>
-                {company.primaryStates.map((s) => (
-                  <StaggerItem key={s} as="li" direction="scale">
-                    <Chip className="px-4 py-2.5 text-[13px]">{s}</Chip>
-                  </StaggerItem>
-                ))}
-              </Stagger>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <CtaBand
         titleLines={['Join the plants', 'that run on KONIN.']}

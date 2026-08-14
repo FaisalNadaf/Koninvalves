@@ -1,10 +1,8 @@
-import { MapPin, ShieldCheck, Layers } from 'lucide-react'
 import { Seo, breadcrumbSchema } from '../components/Seo'
 import PageHero from '../components/PageHero'
-import { Chip, Eyebrow, Glow, GridBackdrop, Img, SectionHeading } from '../components/ui'
+import { Eyebrow, Glow, GridBackdrop, Img } from '../components/ui'
 import { TiltCard } from '../components/ui/TiltCard'
-import { LineReveal, Reveal, rowDirection, Stagger, StaggerItem } from '../lib/motion'
-import { company } from '../data/company'
+import { LineReveal, Reveal, Stagger, StaggerItem } from '../lib/motion'
 import CtaBand from '../sections/CtaBand'
 
 const TRAIL = [
@@ -25,25 +23,6 @@ const CLIENT_LOGOS = Array.from(
   { length: 31 },
   (_, i) => `/img/clients/${String(i + 1).padStart(2, '0')}.webp`
 )
-
-/** Source: the three capabilities and the published inspection regime. */
-const PROOF = [
-  {
-    icon: Layers,
-    title: 'One supplier, three divisions',
-    body: 'Valves, electrical control panels and water treatment control are engineered and supported by the same company, so a plant deals with one order and one point of contact.',
-  },
-  {
-    icon: ShieldCheck,
-    title: 'Inspected by bodies they already use',
-    body: company.thirdPartyApproval,
-  },
-  {
-    icon: MapPin,
-    title: 'Supplied across India',
-    body: company.marketsNote,
-  },
-]
 
 export default function Clientele() {
   return (
@@ -130,7 +109,6 @@ export default function Clientele() {
           </p>
         </div>
       </section>
-
 
       <CtaBand
         titleLines={['Join the plants', 'that run on KONIN.']}

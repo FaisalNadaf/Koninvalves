@@ -373,6 +373,20 @@
 	}
 
 	/* A headline word rendered as brand gradient rather than flat colour. */
+	/* A headline word rendered as brand gradient rather than flat colour.
+
+	   `background-clip: text` paints the gradient across the element's own box
+	   and then clips it to the glyphs — so any ink that falls outside that box
+	   gets no paint at all, and with `color: transparent` behind it, simply is
+	   not drawn. The display faces run at a line-height of 1, which puts the
+	   tail of a g, j, q, p or y below the box, and those tails were being cut
+	   off flat. Only gradient words were affected; the solid-coloured line
+	   above them in the same headline drew its descenders fine.
+
+	   The box is therefore extended below the baseline and pulled straight back
+	   again. On an inline word the margin is ignored and the padding never
+	   touched the line box anyway; on a block line the two cancel. Either way
+	   nothing moves — the gradient just reaches the bottom of the letters. */
 	.text-gradient {
 		background: linear-gradient(
 			100deg,
@@ -383,6 +397,8 @@
 		-webkit-background-clip: text;
 		background-clip: text;
 		color: transparent;
+		padding-bottom: 0.24em;
+		margin-bottom: -0.24em;
 	}
 
 	.text-outline-ink {

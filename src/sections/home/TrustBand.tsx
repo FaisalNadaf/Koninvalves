@@ -24,22 +24,41 @@ const CLIENT_LOGOS = Array.from(
  */
 const WHY_ICONS = [Headset, Layers, Clock, Tag, Cog]
 
+/**
+ * One travelling row of client marks.
+ *
+ * The tile is a flex box, not `grid place-items-center`. It has a fixed height
+ * but its grid row was `auto`, so the mark's `height: 100%` had no definite
+ * height to resolve against: it fell back to the image's intrinsic height,
+ * which then grew the row past the tile. A 128 px tile with 24 px of padding
+ * should cap a logo at 80 px and was rendering it at 127, hanging 24 px out of
+ * the bottom with nothing clipping it. A flex line takes its cross size from
+ * the tile's own height, so `max-h-full` resolves against something real.
+ */
 function LogoRow({ logos, reverse, speed }: { logos: string[]; reverse?: boolean; speed: number }) {
   return (
     <Marquee speed={speed} reverse={reverse}>
       {logos.map((src) => (
         <span
           key={src}
-          className="mx-2.5 grid h-28 w-52 shrink-0 place-items-center rounded-2xl border border-steel-150 bg-white p-5 shadow-e1 transition-all duration-500 ease-out-expo hover:-translate-y-1.5 hover:border-brand-200 hover:shadow-e4 sm:mx-3 sm:h-32 sm:w-60 sm:p-6"
+          className="mx-2.5 flex h-32 w-56 shrink-0 items-center justify-center rounded-2xl border border-steel-150 bg-white p-5 shadow-e1 transition-all duration-500 ease-out-expo hover:-translate-y-1.5 hover:border-brand-200 hover:shadow-e4 sm:mx-3 sm:h-36 sm:w-64 sm:p-6"
         >
-          {/* Full colour, at full strength, filling the padded tile. These
-              marks are the evidence the band exists to show, and a wall of
-              small grey logos reads as filler. */}
+          {/* Full colour, at full strength. These marks are the evidence the
+              band exists to show, and a wall of small grey logos reads as
+              filler. Bounded rather than stretched: `max-*` lets a mark sit at
+              its own size when it is smaller than the tile.
+
+              The tile is sized to the source rather than to taste. Every client
+              mark is a 300 x 200 file, so at 2x device pixels anything wider
+              than 150 CSS px is being upscaled. A 96 px content height puts a
+              typical mark at 144 x 96 — 288 device px against 300 of source —
+              which is as large as these files go before they start to soften.
+              Bigger tiles need bigger artwork, not more CSS. */}
           <Img
             src={src}
             alt=""
-            sizes="240px"
-            className="size-full object-contain transition-transform duration-500 ease-out-expo hover:scale-105"
+            sizes="256px"
+            className="max-h-full max-w-full object-contain transition-transform duration-500 ease-out-expo hover:scale-105"
           />
         </span>
       ))}
@@ -124,9 +143,7 @@ export default function TrustBand() {
             <StaggerItem as="p" direction="from-left" className="mono-label text-steel-400">
               Trusted by industry
             </StaggerItem>
-            <StaggerItem as="p" direction="from-right" className="text-[13px] text-steel-500">
-              A selection of the {CLIENT_LOGOS.length} companies KONIN supplies
-            </StaggerItem>
+         
           </Stagger>
         </div>
 

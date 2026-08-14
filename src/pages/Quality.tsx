@@ -110,8 +110,8 @@ const REGIME: Regime[] = [
  *
  * The photographs are industrial grounds, not depictions: none of these images
  * shows the body's own works, which is why every one of them is decorative
- * (`alt=""`) and sits under a heavy scrim in near-monochrome. The name is the
- * content of the tile; the picture is the texture behind it.
+ * (`alt=""`). The name is the content of the tile; the picture is the ground
+ * behind it, and the scrim over it is what keeps the name legible.
  */
 const INSPECTORS = [
   { name: 'CEIL', image: '/img/industries/refineries.webp' },
@@ -220,10 +220,7 @@ function InspectorTile({
             src={item.image}
             alt=""
             sizes="(max-width: 640px) 44vw, (max-width: 1024px) 30vw, 16vw"
-            /* No `transition-*` utility here: `.duotone` already transitions
-               both filter and transform, and a Tailwind transition utility
-               would replace that shorthand and drop the colour recovery. */
-            className="duotone absolute inset-0 size-full object-cover group-hover:scale-108"
+            className="absolute inset-0 size-full object-cover transition-transform duration-1100 ease-out-expo group-hover:scale-108"
           />
           {/* Deep enough under the name to hold the contrast floor, and gone by
               the top of the tile so the photograph is still a photograph. */}

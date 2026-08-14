@@ -11,7 +11,15 @@ const TRAIL = [
   { name: 'Contact', path: '/contact' },
 ]
 
-const MAP_QUERY = encodeURIComponent(company.address.full)
+/**
+ * The map query, and the target of every map link on the page.
+ *
+ * Name first, then the address. The address alone dropped a pin somewhere in
+ * the industrial estate; the name resolves to KONIN's own Google listing —
+ * which is the place the shared link points at — so the pin carries the
+ * business card rather than a bare coordinate.
+ */
+const MAP_QUERY = encodeURIComponent(`${company.name}, ${company.address.full}`)
 
 export default function Contact() {
   return (
@@ -41,10 +49,15 @@ export default function Contact() {
         imageAlt=""
       />
 
-      <section className="tone-tint relative overflow-hidden section-y">
+      {/* `overflow-x-clip`, not `overflow-hidden`. Hidden makes the section a
+          scroll container, and a sticky child sticks to its nearest scrolling
+          ancestor — so the pinned details column below simply scrolled away
+          with the page. Clip does the same horizontal job without creating
+          that container. */}
+      <section className="tone-tint relative overflow-x-clip section-y">
         <GridBackdrop variant="fine" className="opacity-50" mask={false} />
         <div className="relative container-k">
-          <div className="grid gap-8 lg:grid-cols-12 lg:gap-10">
+          <div className="grid items-start gap-8 lg:grid-cols-12 lg:gap-10">
             {/* Form — the left column, so it arrives from the left; the detail
                 cards on the right come the other way. */}
             <div className="lg:col-span-7">
@@ -53,8 +66,13 @@ export default function Contact() {
               </Reveal>
             </div>
 
-            {/* Details */}
-            <div className="lg:col-span-5">
+            {/* Details.
+                Pinned on wide screens. The stack is a good deal shorter than
+                the form beside it, so left in flow it ended half a column above
+                the submit button and left a hole; pinned, it stays alongside
+                whichever field is being filled and the space below it is the
+                reason it works rather than a gap. */}
+            <div className="lg:col-span-5 lg:sticky lg:top-28 lg:self-start">
               <Stagger className="grid gap-4" step={0.09}>
                 <StaggerItem
                   direction="left"
@@ -124,22 +142,26 @@ export default function Contact() {
                     ))}
                   </ul>
                 </StaggerItem>
-
-                <StaggerItem
-                  direction="left"
-                  className="overflow-hidden rounded-2xl border border-steel-150 shadow-e2"
-                >
-                  <iframe
-                    title={`Map showing ${company.name} at ${company.address.full}`}
-                    src={`https://www.google.com/maps?q=${MAP_QUERY}&output=embed`}
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    className="block h-72 w-full border-0"
-                  />
-                </StaggerItem>
               </Stagger>
             </div>
           </div>
+
+          {/* The map runs the full width beneath the two columns rather than as
+              the last card in the right-hand stack. In a 5-column well it was a
+              288 px square of a city — too small to place anything by. Across
+              the page it is a wide strip, which is the shape a map of a single
+              address actually wants. */}
+          <Reveal direction="from-bottom" amount={0.15}>
+            <div className="mt-8 overflow-hidden rounded-3xl border border-steel-150 shadow-e3 lg:mt-10">
+              <iframe
+                title={`Map showing ${company.name} at ${company.address.full}`}
+                src={`https://www.google.com/maps?q=${MAP_QUERY}&output=embed`}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="block h-72 w-full border-0 sm:h-80 lg:h-96"
+              />
+            </div>
+          </Reveal>
         </div>
       </section>
     </>

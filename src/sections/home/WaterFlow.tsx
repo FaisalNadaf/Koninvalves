@@ -90,7 +90,7 @@ export default function WaterFlow() {
                   distribution and the instrumentation that watches all three.
                 </p>
                 <div className="mt-6">
-                  <Btn to="/products/water-treatment-solutions" variant="outline-ink">
+                  <Btn to="/products/water-treatment-solutions" variant="outline-ink" size="lg">
                     Explore water solutions
                   </Btn>
                 </div>

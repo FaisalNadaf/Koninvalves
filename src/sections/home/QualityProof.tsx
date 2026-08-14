@@ -177,7 +177,7 @@ export default function QualityProof() {
 
             <Reveal direction="from-bottom" delay={0.1}>
               <div className="mt-8">
-                <Btn to="/quality" variant="outline-ink">
+                <Btn to="/quality" variant="outline-ink" size="lg">
                   Quality &amp; certifications
                 </Btn>
               </div>

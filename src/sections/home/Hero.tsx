@@ -1,15 +1,14 @@
 /** @format */
 
 import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
 import {
 	motion,
 	useReducedMotion,
 	useScroll,
 	useTransform,
 } from "framer-motion";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { useMouseParallax } from "../../lib/useParallax";
+import { ArrowUpRight } from "lucide-react";
+import { Btn } from "../../components/ui";
 
 /**
  * Background footage — an industrial plant, from Mixkit's free stock library
@@ -37,7 +36,6 @@ const PROOF = [
 export default function Hero() {
 	const ref = useRef<HTMLElement>(null);
 	const reduce = useReducedMotion();
-	const mouse = useMouseParallax();
 	const [showVideo, setShowVideo] = useState(false);
 	const [videoReady, setVideoReady] = useState(false);
 
@@ -64,8 +62,6 @@ export default function Hero() {
 		return () => clearTimeout(id);
 	}, [reduce]);
 
-	const px = reduce ? 0 : mouse.x;
-
 	return (
 		<section
 			ref={ref}
@@ -77,10 +73,14 @@ export default function Hero() {
 			{/* ---------- Plane 0 · the plant ---------- */}
 			<motion.div
 				aria-hidden="true"
+				/* No pointer parallax. The plate answered every mouse move with an
+				   18 px sideways drag, which on a full-bleed video reads as the
+				   footage sliding under the copy rather than as depth. It still
+				   sinks and swells with the scroll, which is tied to a deliberate
+				   gesture rather than to the cursor drifting across the page. */
 				style={{
 					y: reduce ? 0 : plateY,
 					scale: reduce ? 1 : plateScale,
-					x: px * 18,
 				}}
 				className="absolute inset-0 -z-20">
 				{showVideo && (
@@ -204,24 +204,28 @@ export default function Hero() {
 				<div
 					className="anim-fade-up mt-8 flex flex-wrap justify-center gap-3 sm:mt-9"
 					style={{ animationDelay: "440ms" }}>
-					<Link
+					{/* Through <Btn>, like every other button on the site. Written by
+					    hand these two were the only pair that never leaned toward the
+					    pointer: the magnetic wrapper lives in the component, so a
+					    hand-rolled `className="btn …"` gets the paint but not the
+					    behaviour. */}
+					<Btn
 						to="/products/valves"
-						className="btn btn-primary btn-lg group">
+						size="lg">
 						Explore the range
-						<ArrowRight
-							className="size-4 transition-transform duration-400 ease-out-expo group-hover:translate-x-1"
-							aria-hidden="true"
-						/>
-					</Link>
-					<Link
+					</Btn>
+					<Btn
 						to="/contact"
-						className="btn btn-outline-ink btn-lg group">
+						variant="outline-ink"
+						size="lg"
+						icon={
+							<ArrowUpRight
+								className="size-4 transition-transform duration-400 ease-out-expo group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+								aria-hidden="true"
+							/>
+						}>
 						Request a quote
-						<ArrowUpRight
-							className="size-4 transition-transform duration-400 ease-out-expo group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-							aria-hidden="true"
-						/>
-					</Link>
+					</Btn>
 				</div>
 
 				{/* Published proof — the figures close the composition on evidence and

@@ -143,6 +143,7 @@ export default function Category() {
                   href={catalogue.href}
                   download={catalogue.as}
                   variant="primary"
+                  size="lg"
                   icon={<Download className="size-4" aria-hidden="true" />}
                 >
                   Download PDF

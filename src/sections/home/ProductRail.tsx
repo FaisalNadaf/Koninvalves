@@ -93,7 +93,7 @@ export default function ProductRail() {
               </p>
             </Reveal>
             <Reveal delay={0.15}>
-              <Btn to="/products/valves" variant="outline-ink">
+              <Btn to="/products/valves" variant="outline-ink" size="lg">
                 All {valves.length} valves
               </Btn>
             </Reveal>

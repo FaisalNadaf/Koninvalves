@@ -370,7 +370,7 @@ export default function IndustriesReveal() {
               </div>
 
               <div className="mt-9">
-                <Btn to="/industries" variant="outline-ink">
+                <Btn to="/industries" variant="outline-ink" size="lg">
                   All industries
                 </Btn>
               </div>

@@ -217,7 +217,7 @@ export default function Products() {
                           </span>
                         </div>
                         <div className="ml-auto">
-                          <Btn to={cat.path} variant="primary">
+                          <Btn to={cat.path} variant="primary" size="lg">
                             Explore {cat.shortName}
                           </Btn>
                         </div>

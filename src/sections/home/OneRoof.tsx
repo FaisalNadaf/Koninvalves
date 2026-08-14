@@ -135,7 +135,7 @@ export default function OneRoof() {
 
             <Reveal direction="from-bottom" delay={0.2}>
               <div className="mt-8">
-                <Btn to="/about" variant="primary">
+                <Btn to="/about" variant="primary" size="lg">
                   About KONIN
                 </Btn>
               </div>

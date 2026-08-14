@@ -235,7 +235,7 @@ export default function AutomationStory() {
             ))}
 
             <Reveal direction="from-bottom" amount={0.5} className="pt-4">
-              <Btn to="/products/automation-solutions" variant="outline-ink">
+              <Btn to="/products/automation-solutions" variant="outline-ink" size="lg">
                 All automation solutions
               </Btn>
             </Reveal>

@@ -73,8 +73,6 @@ export default function EnquiryForm() {
       '',
       'Requirement:',
       get('requirement'),
-      '',
-      get('message') ? `Additional notes:\n${get('message')}` : '',
     ]
       .filter(Boolean)
       .join('\n')
@@ -108,7 +106,7 @@ export default function EnquiryForm() {
         </span>
         <h3 className="font-display text-2xl font-bold text-ink-900">Your enquiry is ready</h3>
         <p className="text-[14.5px] leading-relaxed text-steel-600">
-          We have opened your email client with the enquiry filled in — send it and our
+          We have opened your email client with the enquiry filled in send it and our
           engineering team will come back to you. If nothing opened, email us directly at{' '}
           <a
             href={`mailto:${company.emails[0]}`}
@@ -168,14 +166,24 @@ export default function EnquiryForm() {
           className="mt-3 text-[14px] leading-relaxed text-steel-500"
         >
           Fields marked <span aria-hidden="true">*</span> are required. The more duty detail you
-          give — media, temperature, pressure class, line size — the faster we can specify.
+          give media, temperature, pressure class, line size the faster we can specify.
         </StaggerItem>
       </Stagger>
 
-      {/* One field after another, quickly: seven fields at 60 ms is under half
-          a second end to end, so the form is complete about as fast as it can
-          be read down to. */}
+      {/* One field after another, quickly: six fields at 60 ms is well under
+          half a second end to end, so the form is complete about as fast as it
+          can be read down to.
+
+          The two rules split it into who is asking and what they are asking
+          for. Six unlabelled boxes in a row is a wall; the same six under two
+          headings is two short questions. */}
       <Stagger className="mt-7 grid gap-5 sm:grid-cols-2" step={0.06} amount={0.12}>
+        <StaggerItem direction="from-bottom" distance={0.45} className="sm:col-span-2">
+          <p className="mono-label border-b border-steel-150 pb-3 text-steel-400">
+            Your details
+          </p>
+        </StaggerItem>
+
         <StaggerItem direction="from-bottom" distance={0.45}>
           <label htmlFor="f-name" className={LABEL}>
             Name <span className="text-signal-600">*</span>
@@ -255,6 +263,12 @@ export default function EnquiryForm() {
         </StaggerItem>
 
         <StaggerItem direction="from-bottom" distance={0.45} className="sm:col-span-2">
+          <p className="mono-label mt-2 border-b border-steel-150 pb-3 text-steel-400">
+            Your requirement
+          </p>
+        </StaggerItem>
+
+        <StaggerItem direction="from-bottom" distance={0.45} className="sm:col-span-2">
           <label htmlFor="f-product" className={LABEL}>
             Product / Solution
           </label>
@@ -275,12 +289,12 @@ export default function EnquiryForm() {
 
         <StaggerItem direction="from-bottom" distance={0.45} className="sm:col-span-2">
           <label htmlFor="f-requirement" className={LABEL}>
-            Requirement <span className="text-signal-600">*</span>
+            Note <span className="text-signal-600">*</span>
           </label>
           <textarea
             id="f-requirement"
             name="requirement"
-            rows={4}
+            rows={6}
             required
             aria-invalid={Boolean(errors.requirement)}
             aria-describedby={errors.requirement ? 'e-requirement' : 'h-requirement'}
@@ -297,22 +311,10 @@ export default function EnquiryForm() {
             </p>
           ) : (
             <p id="h-requirement" className="mt-2 text-[12.5px] text-steel-500">
-              Include quantity, size, pressure class, media and temperature where known.
+              Include quantity, size, pressure class, media and temperature where known,
+              plus delivery timeline, inspection requirements or a project reference.
             </p>
           )}
-        </StaggerItem>
-
-        <StaggerItem direction="from-bottom" distance={0.45} className="sm:col-span-2">
-          <label htmlFor="f-message" className={LABEL}>
-            Additional notes
-          </label>
-          <textarea
-            id="f-message"
-            name="message"
-            rows={3}
-            className={`${FIELD} mt-2 resize-y`}
-            placeholder="Delivery timeline, inspection requirements, project reference…"
-          />
         </StaggerItem>
       </Stagger>
 

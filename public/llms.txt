@@ -1,0 +1,30 @@
+# KONIN Valves
+
+> ISO 9001:2015 certified manufacturer and supplier of industrial valves, electrical automation solutions and water treatment solutions, based in Belagavi, Karnataka, India. KONIN provides a complete flow control solution under one roof, including valve automation.
+
+KONIN manufactures ball, butterfly, gate, globe, check, knife gate, needle and automatic control valves to API, BS, DIN, ISO and EN series standards. Valve sizes run from 6 mm instrument needle valves to 1800 mm double flanged butterfly valves, in pressure classes from PN6 to Class 2500 and up to 14000 PSI. 100% of production is dimension and pressure tested; third-party inspection is available through CEIL, TUV, BVQL, RITES and Germanischer Lloyd.
+
+KONIN Automation Solutions designs and builds electrical control panels — power and motor control centres, AMF, APFC, VFD, PLC, OEM, soft starter and autotransformer starter panels — and programs PLCs for Allen Bradley, Siemens, Delta, Mitsubishi and Selec platforms.
+
+KONIN water treatment solutions cover dam and canal gate automation, pump house automation, WTP, ETP, STP and desalination plant automation, water distribution and collection systems, pipeline and source condition monitoring, and autonomous solar power supply systems.
+
+## Products & solutions
+
+- [All products](https://www.koninvalve.com/products): The three KONIN categories — valves, automation and water treatment.
+- [Industrial valves](https://www.koninvalve.com/products/valves): 23 valve products across ball, gate, globe, check, butterfly, knife gate, automatic control, instrument and valve automation families.
+- [Automation solutions](https://www.koninvalve.com/products/automation-solutions): 11 electrical control panel types plus PLC programming and AMC services.
+- [Water treatment solutions](https://www.koninvalve.com/products/water-treatment-solutions): 11 water industry automation and monitoring solutions.
+
+## Company
+
+- [About KONIN](https://www.koninvalve.com/about): Company background, vision, mission and values.
+- [Quality & certifications](https://www.koninvalve.com/quality): Testing regime, third-party approval and downloadable certificates.
+- [Industries served](https://www.koninvalve.com/industries): 17 industries including water treatment, oil & gas, refineries, power, steel, mining and pulp & paper.
+- [Gallery](https://www.koninvalve.com/gallery): Product photography for valves, panels and water solutions.
+- [Contact](https://www.koninvalve.com/contact): Enquiry form, address, phone numbers and email addresses.
+
+## Optional
+
+- [Valve catalogue (PDF)](https://www.koninvalve.com/docs/konin-valves-catalogue.pdf): The printed KONIN valve catalogue.
+- [ISO 9001:2015 certificate (PDF)](https://www.koninvalve.com/docs/ISO.pdf)
+- [Sitemap](https://www.koninvalve.com/sitemap.xml)

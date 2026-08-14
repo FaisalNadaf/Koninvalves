@@ -1,0 +1,56 @@
+<!doctype html>
+<!--
+  Designed & Developed by Faisal Nadaf
+  Email : faisalfnadaf@gmail.com
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/img/brand/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"
+    />
+    <meta name="theme-color" content="#F2F7FC" />
+    <meta name="color-scheme" content="light" />
+    <!--
+      CONTENT VISIBILITY FAILSAFE — read before touching.
+
+      Scroll-reveal elements are rendered with an initial opacity:0 by the motion
+      library, and that hidden state is baked into the pre-rendered HTML. If the
+      reveal never runs, the content is gone. Two independent nets stop that, and
+      both key off [data-reveal], which the motion system puts on every element
+      that starts out invisible. Targeting the attribute rather than "anything
+      with an inline opacity" matters: several components legitimately render a
+      hidden element (the queued cards in the industries fan, for one) and those
+      must stay hidden.
+
+      1. JavaScript disabled outright  -> the <noscript> rule below.
+      2. JavaScript enabled but never arrives — a failed chunk, a dead network,
+         a bundle error -> the timer below. React clears it on mount; if it
+         fires first the page simply keeps its content and drops the animations
+         for the rest of the session, rather than flashing them back out.
+    -->
+    <noscript>
+      <style>
+        [data-reveal] {
+          opacity: 1 !important;
+          transform: none !important;
+          filter: none !important;
+        }
+      </style>
+    </noscript>
+    <script>
+      window.__koninRevealFailsafe = setTimeout(function () {
+        document.documentElement.classList.add('reveal-failsafe')
+      }, 4000)
+    </script>
+  </head>
+  <body>
+    <div id="root"><!--app-html--></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

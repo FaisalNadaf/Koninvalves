@@ -1,0 +1,5 @@
+# robots.txt — https://www.koninvalve.com
+User-agent: *
+Allow: /
+
+Sitemap: https://www.koninvalve.com/sitemap.xml

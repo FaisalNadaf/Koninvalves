@@ -112,7 +112,7 @@ export default function Contact() {
                       <li key={t}>
                         <a
                           href={`tel:${t.replace(/\s/g, '')}`}
-                          className="flex min-h-8 items-center rounded-lg font-mono text-[15px] text-ink-900 transition-colors hover:text-brand-700"
+                          className="flex min-h-8 items-center rounded-lg font-medium text-[15px] text-ink-900 transition-colors hover:text-brand-700"
                         >
                           {t}
                         </a>

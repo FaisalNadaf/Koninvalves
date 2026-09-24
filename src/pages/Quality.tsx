@@ -189,7 +189,7 @@ function RegimeCard({ item, index }: { item: Regime; index: number }) {
               {item.methods.map((m) => (
                 <li
                   key={m}
-                  className="rounded-md border border-steel-150 bg-steel-50 px-2 py-1 font-mono text-[10.5px] tracking-wide text-steel-600 transition-colors duration-400 group-hover:border-brand-100 group-hover:bg-brand-50 group-hover:text-brand-700"
+                  className="rounded-md border border-steel-150 bg-steel-50 px-2 py-1 font-medium text-[10.5px] tracking-wide text-steel-600 transition-colors duration-400 group-hover:border-brand-100 group-hover:bg-brand-50 group-hover:text-brand-700"
                 >
                   {m}
                 </li>
@@ -288,7 +288,7 @@ function CertificateCard({
               />
             </div>
 
-            <span className="absolute top-7 right-7 z-10 rounded-full border border-steel-200 bg-white/90 px-2.5 py-1 font-mono text-[10px] tracking-[0.16em] text-steel-600 uppercase shadow-e1 backdrop-blur-sm transition-colors duration-500 group-hover:border-brand-200 group-hover:text-brand-700 sm:top-8 sm:right-8">
+            <span className="absolute top-7 right-7 z-10 rounded-full border border-steel-200 bg-white/90 px-2.5 py-1 font-medium text-[10px] tracking-[0.16em] text-steel-600 uppercase shadow-e1 backdrop-blur-sm transition-colors duration-500 group-hover:border-brand-200 group-hover:text-brand-700 sm:top-8 sm:right-8">
               PDF
             </span>
           </div>
@@ -298,7 +298,7 @@ function CertificateCard({
               {cert.name}
             </h3>
             {cert.issuer !== '—' && (
-              <p className="mt-1.5 font-mono text-[11px] tracking-wide text-brand-700">
+              <p className="mt-1.5 font-medium text-[11px] tracking-wide text-brand-700">
                 {cert.issuer}
               </p>
             )}

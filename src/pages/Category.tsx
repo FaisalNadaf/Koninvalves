@@ -182,7 +182,7 @@ export default function Category() {
                     >
                       {g}
                       <span
-                        className={`font-mono text-[11px] ${on ? 'text-white/70' : 'text-steel-400'}`}
+                        className={`font-medium text-[11px] ${on ? 'text-white/70' : 'text-steel-400'}`}
                       >
                         {count}
                       </span>

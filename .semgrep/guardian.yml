@@ -1,5 +1,5 @@
-serial: 5
+serial: 6
 anonymous_user_id: 7c9a32fb-c434-4f75-9055-4d389a535c52
 semgrep:
     auth_method: oauth
-expiry: 2026-08-14T18:18:21.2613907+05:30
+expiry: 2026-08-31T18:37:24.491931+05:30

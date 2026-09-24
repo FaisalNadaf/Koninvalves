@@ -176,7 +176,7 @@ export default function ProductDetail() {
                       <dt className="text-[10px] tracking-[0.14em] text-steel-400 uppercase">
                         {f.label}
                       </dt>
-                      <dd className="mt-2.5 font-mono text-[13px] leading-snug text-ink-900">
+                      <dd className="mt-2.5 text-[14.5px] leading-snug font-semibold text-ink-900">
                         {f.value}
                       </dd>
                     </div>
@@ -207,7 +207,9 @@ export default function ProductDetail() {
                   className="anim-fade-up mt-7 border-t border-steel-200 pt-6"
                   style={{ animationDelay: '410ms' }}
                 >
-                  <p className="mono-label text-steel-400">Manufactured &amp; tested to</p>
+                  <p className="text-[11px] font-semibold tracking-[0.14em] text-steel-400 uppercase">
+                    Manufactured &amp; tested to
+                  </p>
                   <ul className="mt-4 flex flex-wrap gap-2">
                     {product.standards.map((s) => (
                       <li key={s}>

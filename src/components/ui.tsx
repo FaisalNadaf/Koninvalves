@@ -290,7 +290,7 @@ export function Chip({
 }) {
   return (
     <span
-      className={`inline-flex items-center rounded-full border px-3 py-1.5 font-mono text-[11px] tracking-[0.08em] transition-colors duration-300 ${
+      className={`inline-flex items-center rounded-full border px-3 py-1.5 text-[12px] font-medium tracking-[0.02em] transition-colors duration-300 ${
         tone === 'onBrand'
           ? 'border-white/25 bg-white/10 text-white/85 hover:bg-white/18'
           : 'border-steel-200 bg-white text-steel-600 hover:border-brand-200 hover:text-brand-700'

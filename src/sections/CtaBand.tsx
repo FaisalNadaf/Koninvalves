@@ -94,7 +94,7 @@ export default function CtaBand({
                         className="group flex items-center gap-3.5 rounded-xl bg-white/10 px-4 py-3 transition-colors duration-300 hover:bg-white/20"
                       >
                         <Phone className="size-4 shrink-0 text-white/70" aria-hidden="true" />
-                        <span className="font-mono text-[13.5px] tracking-tight text-white/85 transition-colors group-hover:text-white">
+                        <span className="font-medium text-[13.5px] tracking-tight text-white/85 transition-colors group-hover:text-white">
                           {t}
                         </span>
                       </a>
@@ -104,7 +104,7 @@ export default function CtaBand({
                       className="group flex items-center gap-3.5 rounded-xl bg-white/10 px-4 py-3 transition-colors duration-300 hover:bg-white/20"
                     >
                       <Mail className="size-4 shrink-0 text-signal-300" aria-hidden="true" />
-                      <span className="truncate font-mono text-[13.5px] tracking-tight text-white/85 transition-colors group-hover:text-white">
+                      <span className="truncate font-medium text-[13.5px] tracking-tight text-white/85 transition-colors group-hover:text-white">
                         {company.emails[0]}
                       </span>
                     </a>

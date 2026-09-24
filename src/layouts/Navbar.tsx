@@ -349,7 +349,7 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             <a
               href={`tel:${company.phones[0].replace(/\s/g, '')}`}
-              className="hidden items-center gap-2 rounded-full border border-steel-150 bg-white/70 px-3.5 py-2 font-mono text-[12.5px] tracking-tight text-steel-600 transition-colors hover:border-brand-200 hover:text-brand-700 lg:flex"
+              className="hidden items-center gap-2 rounded-full border border-steel-150 bg-white/70 px-3.5 py-2 font-medium text-[12.5px] tracking-tight text-steel-600 transition-colors hover:border-brand-200 hover:text-brand-700 lg:flex"
             >
               <Phone className="size-3.5 text-brand-600" aria-hidden="true" />
               {company.phones[0]}

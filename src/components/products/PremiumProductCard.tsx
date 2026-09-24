@@ -207,7 +207,7 @@ export function PremiumProductCard({
                     <dt className="text-[9px] font-semibold tracking-[0.16em] text-steel-400 uppercase">
                       {f.label}
                     </dt>
-                    <dd className="mt-1 font-mono text-[11.5px] leading-snug text-ink-800">
+                    <dd className="mt-1 font-medium text-[11.5px] leading-snug text-ink-800">
                       {f.value}
                     </dd>
                   </div>

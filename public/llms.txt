@@ -1,10 +1,12 @@
 # KONIN Valves
 
-> ISO 9001:2015 certified manufacturer and supplier of industrial valves, electrical automation solutions and water treatment solutions, based in Belagavi, Karnataka, India. KONIN provides a complete flow control solution under one roof, including valve automation.
+> ISO 9001:2015 certified manufacturer of industrial valves and integrated automation solutions, delivering reliable flow-control and process solutions for a wide range of industrial applications. Based in Belagavi, Karnataka, India, KONIN also provides water treatment automation solutions.
 
-KONIN manufactures ball, butterfly, gate, globe, check, knife gate, needle and automatic control valves to API, BS, DIN, ISO and EN series standards. Valve sizes run from 6 mm instrument needle valves to 1800 mm double flanged butterfly valves, in pressure classes from PN6 to Class 2500 and up to 14000 PSI. 100% of production is dimension and pressure tested; third-party inspection is available through CEIL, TUV, BVQL, RITES and Germanischer Lloyd.
+KONIN manufactures ball, butterfly, gate, globe, check, knife gate, needle and automatic control valves to applicable API, BIS, BS, DIN, ISO and EN standards, in Full Bore (FB) and Reduced Bore (RB) designs. Valve sizes run from 6 mm instrument needle valves to 1800 mm double flanged butterfly valves, in pressure classes from PN6 to Class 2500 and up to 14000 PSI. Configurations include fire-safe valves per API 607 / API 6D, single, two and three piece ball valves, two-way and three-way designs, PTFE, RPTFE (CFT), PEEK and metal seats, extended stem and jacketed bonnet valves.
 
-KONIN Automation Solutions designs and builds electrical control panels — power and motor control centres, AMF, APFC, VFD, PLC, OEM, soft starter and autotransformer starter panels — and programs PLCs for Allen Bradley, Siemens, Delta, Mitsubishi and Selec platforms.
+Quality: 100% dimensional inspection and pressure testing, plus material and performance testing as required, including spectrochemical analysis, PMI, UT, MPI, DPT, RT, hardness and tensile, impact testing down to −101°C, CMM ball roundness, surface roughness (Ra), salt spray, coating thickness and elastomer testing. Third-party inspection can be coordinated with CEIL, BVQL, TÜV, Germanischer Lloyd and RITES; Cv value testing through FCRI, Palakkad; fire safe and cryogenic testing as required.
+
+KONIN Automation Solutions designs and manufactures electrical control panels and automation systems integrated with PLC controllers and SCADA systems: power and motor control centres, AMF, APFC, VFD, PLC, OEM, soft starter and autotransformer starter panels, valve automation and actuator control, alarm management, data acquisition and remote monitoring. KONIN programs PLCs for Allen Bradley, Siemens, Delta, Mitsubishi and Selec platforms.
 
 KONIN water treatment solutions cover dam and canal gate automation, pump house automation, WTP, ETP, STP and desalination plant automation, water distribution and collection systems, pipeline and source condition monitoring, and autonomous solar power supply systems.
 
@@ -17,7 +19,7 @@ KONIN water treatment solutions cover dam and canal gate automation, pump house 
 
 ## Company
 
-- [About KONIN](https://www.koninvalve.com/about): Company background, vision, mission and values.
+- [About KONIN](https://www.koninvalve.com/about): Company background, product features and configurations, automation and control capabilities, quality and testing, third-party inspection, vision, mission, values and commitment.
 - [Quality & certifications](https://www.koninvalve.com/quality): Testing regime, third-party approval and downloadable certificates.
 - [Industries served](https://www.koninvalve.com/industries): 17 industries including water treatment, oil & gas, refineries, power, steel, mining and pulp & paper.
 - [Gallery](https://www.koninvalve.com/gallery): Product photography for valves, panels and water solutions.

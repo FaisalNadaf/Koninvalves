@@ -16,7 +16,7 @@ import { LineReveal, Reveal } from '../lib/motion'
  */
 export default function CtaBand({
   titleLines = ['Tell us the duty.', 'We will specify', 'the valve.'],
-  lead = 'Send the line size, pressure class, media and temperature — our engineering team will come back with a specification and a quotation.',
+  lead = 'Send the line size, pressure class, media and temperature, and our engineering team will come back with a specification and a quotation.',
 }: {
   titleLines?: string[]
   lead?: string

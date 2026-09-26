@@ -1,17 +1,79 @@
+import { Link } from 'react-router-dom'
 import { motion, type Variants } from 'framer-motion'
-import { Eye, Target, Gem } from 'lucide-react'
+import {
+  Activity,
+  ArrowUpRight,
+  BellRing,
+  ChartColumn,
+  Check,
+  Cpu,
+  Eye,
+  FlaskConical,
+  Gem,
+  MonitorDot,
+  Network,
+  PanelTop,
+  RadioTower,
+  Settings2,
+  ShieldCheck,
+  Snowflake,
+  Target,
+  Workflow,
+  type LucideIcon,
+} from 'lucide-react'
 import { Seo, breadcrumbSchema, organizationSchema } from '../components/Seo'
 import PageHero from '../components/PageHero'
-import { Img, SectionHeading, GridBackdrop, CornerTicks, Eyebrow, Glow } from '../components/ui'
+import {
+  Btn,
+  Chip,
+  Img,
+  SectionHeading,
+  GridBackdrop,
+  CornerTicks,
+  Eyebrow,
+  Glow,
+} from '../components/ui'
 import { TiltCard } from '../components/ui/TiltCard'
+import { PremiumProductCard } from '../components/products/PremiumProductCard'
 import { Counter, ImageReveal, Marquee } from '../components/fx'
-import { EASE, LineReveal, Reveal, Stagger, StaggerItem } from '../lib/motion'
-import { company } from '../data/company'
+import { EASE, LineReveal, Reveal, rowDirection, Stagger, StaggerItem } from '../lib/motion'
+import { automationDivision, company } from '../data/company'
+import { valves } from '../data/valves'
 import CtaBand from '../sections/CtaBand'
 
 const TRAIL = [
   { name: 'Home', path: '/' },
   { name: 'About', path: '/about' },
+]
+
+/**
+ * The three ball valve constructions named in the product features list, shown
+ * with the photographs supplied alongside the About copy.
+ */
+const BALL_VALVES = [
+  'single-piece-ball-valves',
+  'cast-steel-two-piece-ball-valves',
+  'forged-three-piece-ball-valves',
+]
+  .map((slug) => valves.find((v) => v.slug === slug))
+  .filter((v) => v !== undefined)
+
+/**
+ * One icon per automation capability, in the order
+ * `automationDivision.control.capabilities` lists them. A capability added
+ * without an icon falls back to a check mark rather than rendering nothing.
+ */
+const CONTROL_ICONS: LucideIcon[] = [
+  Cpu, // PLC-based process control
+  MonitorDot, // SCADA monitoring and supervisory control
+  PanelTop, // Electrical & PLC control panel manufacturing
+  Settings2, // Valve automation and actuator control
+  Workflow, // Sequencing and interlocking
+  Activity, // Real-time process monitoring
+  BellRing, // Alarm and event management
+  ChartColumn, // Data acquisition and visualization
+  RadioTower, // Remote monitoring and operational control
+  Network, // Integration of valves, instruments, sensors and field devices
 ]
 
 /* ------------------------------------------------------------------ */
@@ -51,11 +113,13 @@ function panelVariants(x: number, y: number): Variants {
 }
 
 export default function About() {
+  const { control } = automationDivision
+
   return (
     <>
       <Seo
-        title="About KONIN Valves — ISO 9001:2015 Valve Manufacturer"
-        description="KONIN Valves is an ISO 9001:2015 certified manufacturer and supplier of industrial valves in Belagavi, Karnataka, providing complete flow control solutions."
+        title="About KONIN Valves | ISO 9001:2015 Valve Manufacturer"
+        description="KONIN Valves manufactures industrial valves to API, BIS, BS, DIN, ISO and EN standards, with PLC and SCADA automation solutions, in Belagavi, Karnataka."
         path="/about"
         image="/img/company/about.webp"
         schema={[
@@ -66,6 +130,7 @@ export default function About() {
             '@type': 'AboutPage',
             name: 'About KONIN Valves',
             url: 'https://www.koninvalve.com/about',
+            description: company.positioning,
             about: { '@id': 'https://www.koninvalve.com/#organization' },
           },
         ]}
@@ -74,7 +139,7 @@ export default function About() {
       <PageHero
         eyebrow="About KONIN"
         title="Where perfection and precision need"
-        lead="An ISO 9001:2015 certified manufacturer and supplier of industrial valves, delivering complete flow control under one roof."
+        lead="Industrial valves, electrical control panels and PLC-SCADA automation from one ISO 9001:2015 certified manufacturer."
         image="/img/company/plant-1.webp"
         imageAlt=""
       />
@@ -91,7 +156,7 @@ export default function About() {
               <LineReveal
                 as="h2"
                 className="h-section mt-5 text-ink-900"
-                lines={['A complete flow control', 'solution, under one roof.']}
+                lines={['Industrial valves and', 'integrated automation.']}
                 accentClassName="text-gradient"
               />
               <Reveal direction="from-left" delay={0.1}>
@@ -102,13 +167,35 @@ export default function About() {
                 </div>
               </Reveal>
 
+              {/* The standards and bore designs the paragraphs above name,
+                  lifted out so a buyer checking for one finds it at a glance. */}
               <Reveal direction="from-left" delay={0.14}>
-                <div className="mt-8 rounded-2xl border border-brand-100 bg-linear-to-br from-brand-50 to-white p-7 shadow-e1">
-                  <p className="eyebrow">Salient features of our products</p>
-                  <p className="mt-4 text-[14.5px] leading-relaxed text-steel-600">
-                    {company.salientFeatures}
-                  </p>
-                </div>
+                <dl className="mt-8 grid gap-6 rounded-2xl border border-brand-100 bg-linear-to-br from-brand-50 to-white p-7 shadow-e1 sm:grid-cols-2">
+                  <div>
+                    <dt className="mono-label text-brand-700">Manufactured to</dt>
+                    <dd className="mt-4">
+                      <ul className="flex flex-wrap gap-2">
+                        {company.standards.map((s) => (
+                          <li key={s}>
+                            <Chip>{s}</Chip>
+                          </li>
+                        ))}
+                      </ul>
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="mono-label text-brand-700">Bore designs</dt>
+                    <dd className="mt-4">
+                      <ul className="flex flex-wrap gap-2">
+                        {company.boreDesigns.map((s) => (
+                          <li key={s}>
+                            <Chip>{s}</Chip>
+                          </li>
+                        ))}
+                      </ul>
+                    </dd>
+                  </div>
+                </dl>
               </Reveal>
             </div>
 
@@ -120,7 +207,7 @@ export default function About() {
                 >
                   <Img
                     src="/img/company/about.webp"
-                    alt="The KONIN Valves product range — butterfly, gate, ball, globe and check valves"
+                    alt="The KONIN Valves product range: butterfly, gate, ball, globe and check valves"
                     sizes="(max-width: 1024px) 92vw, 38vw"
                     className="aspect-4/3 w-full object-cover transition-transform duration-1100 ease-out-expo group-hover:scale-105"
                   />
@@ -129,29 +216,336 @@ export default function About() {
                 </ImageReveal>
               </TiltCard>
 
-              <Stagger as="dl" className="mt-4 grid gap-3" step={0.08}>
+              {/* Two by two: stacked in one column the four tiles ran the
+                  right-hand column well past the copy beside it. */}
+              <Stagger as="dl" className="mt-4 grid gap-3 sm:grid-cols-2" step={0.08}>
                 {company.highlights.map((h) => (
-                  <StaggerItem key={h.label} direction="from-right">
-                    <div className="group rounded-2xl border border-steel-150 bg-steel-50 p-5 transition-all duration-500 hover:-translate-y-0.5 hover:border-brand-200 hover:bg-white hover:shadow-e2">
-                      <div className="flex items-baseline gap-4">
-                        <dt className="sr-only">{h.label}</dt>
-                        <dd className="contents">
-                          <Counter
-                            value={h.value}
-                            className="font-display text-2xl leading-none font-bold text-brand-700 tabular-nums"
-                          />
-                          <p className="text-[13.5px] font-semibold text-ink-900">{h.label}</p>
-                        </dd>
-                      </div>
-                      <p className="mt-2.5 text-[12.5px] leading-relaxed text-steel-500">
-                        {h.detail}
-                      </p>
+                  <StaggerItem key={h.label} direction="from-right" className="h-full">
+                    <div className="group h-full rounded-2xl border border-steel-150 bg-steel-50 p-5 transition-all duration-500 hover:-translate-y-0.5 hover:border-brand-200 hover:bg-white hover:shadow-e2">
+                      <dt className="sr-only">{h.label}</dt>
+                      <dd>
+                        <Counter
+                          value={h.value}
+                          className="block font-display text-2xl leading-none font-bold text-brand-700 tabular-nums"
+                        />
+                        <p className="mt-2.5 text-[13.5px] leading-snug font-semibold text-ink-900">
+                          {h.label}
+                        </p>
+                        <p className="mt-2 text-[12.5px] leading-relaxed text-steel-500">
+                          {h.detail}
+                        </p>
+                      </dd>
                     </div>
                   </StaggerItem>
                 ))}
               </Stagger>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ---------------- Product features & configurations ---------------- */}
+      <section
+        aria-labelledby="features-title"
+        className="tone-tint relative overflow-hidden section-y"
+      >
+        <GridBackdrop />
+        <Glow className="-top-40 right-0" size="40rem" intensity={0.12} drift />
+
+        <div className="relative container-k">
+          <div className="grid gap-6 lg:grid-cols-12 lg:items-end lg:gap-14">
+            <div className="lg:col-span-7">
+              <Reveal direction="from-left">
+                <Eyebrow>Product features &amp; configurations</Eyebrow>
+              </Reveal>
+              <LineReveal
+                as="h2"
+                id="features-title"
+                className="h-section mt-5 text-ink-900"
+                lines={['Configured to', 'the application.']}
+                accentClassName="text-gradient"
+              />
+            </div>
+            <div className="lg:col-span-5">
+              <Reveal direction="from-right" delay={0.1}>
+                <p className="lead text-steel-600">{company.productFeatures.intro}</p>
+              </Reveal>
+            </div>
+          </div>
+
+          <Stagger as="ul" className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4" step={0.06}>
+            {company.productFeatures.items.map((f, i) => (
+              <StaggerItem
+                as="li"
+                key={f}
+                direction={rowDirection(i % 4, 4)}
+                className="h-full"
+              >
+                {/* A row on phones, where a stacked tile spent more height on
+                    its index and rule than on its one line of copy. */}
+                <div className="group flex h-full items-baseline gap-4 rounded-2xl border border-steel-150 bg-white p-5 shadow-e1 transition-all duration-500 ease-out-expo hover:-translate-y-0.5 hover:border-brand-200 hover:shadow-e3 sm:flex-col sm:items-stretch sm:gap-0">
+                  <span
+                    aria-hidden="true"
+                    className="mono-label shrink-0 text-steel-400 transition-colors duration-400 group-hover:text-brand-600"
+                  >
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    className="mt-3 hidden h-0.5 w-8 rounded-full bg-steel-200 transition-all duration-500 ease-out-expo group-hover:w-12 group-hover:bg-linear-to-r group-hover:from-brand-600 group-hover:to-aqua-400 sm:block"
+                  />
+                  <p className="text-[14.5px] leading-snug font-semibold text-ink-900 sm:mt-4">{f}</p>
+                </div>
+              </StaggerItem>
+            ))}
+          </Stagger>
+
+          {/* The single, two and three piece constructions, as the products
+              they are — each card leads to its full specification. */}
+          <div className="mt-14 lg:mt-16">
+            <Reveal direction="from-left" amount={0.5}>
+              <div className="flex flex-wrap items-end justify-between gap-x-6 gap-y-3 border-b border-steel-200 pb-4">
+                <h3 className="h-sub text-ink-900">Single, two and three piece ball valves</h3>
+                <Link
+                  to="/products/valves?group=Ball%20Valves"
+                  className="link-slide min-h-7 text-[13.5px] font-semibold text-brand-700"
+                >
+                  All ball valves
+                  <ArrowUpRight className="size-3.5" aria-hidden="true" />
+                </Link>
+              </div>
+            </Reveal>
+
+            <Stagger className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" step={0.08}>
+              {BALL_VALVES.map((p, i) => (
+                <StaggerItem
+                  key={p.slug}
+                  direction={rowDirection(i, BALL_VALVES.length)}
+                  className="h-full"
+                >
+                  <PremiumProductCard product={p} categoryKey="valves" compact />
+                </StaggerItem>
+              ))}
+            </Stagger>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------------- Automation & control solutions ---------------- */}
+      <section
+        aria-labelledby="control-title"
+        className="relative overflow-hidden bg-white section-y"
+      >
+        <GridBackdrop variant="fine" className="opacity-50" mask={false} />
+        <Glow className="top-1/3 -left-52" color="signal" size="42rem" intensity={0.08} />
+
+        <div className="relative container-k">
+          <div className="grid gap-12 lg:grid-cols-12 lg:gap-14">
+            <div className="lg:col-span-5">
+              <Reveal direction="from-left">
+                <Eyebrow>Automation &amp; control solutions</Eyebrow>
+              </Reveal>
+              <LineReveal
+                as="h2"
+                id="control-title"
+                className="h-section mt-5 text-ink-900"
+                lines={['From a single valve', 'to a complete system.']}
+                accentClassName="text-gradient"
+              />
+              <Reveal direction="from-left" delay={0.1}>
+                <div className="mt-6 space-y-4 text-[15.5px] leading-relaxed text-steel-600">
+                  {control.intro.map((p) => (
+                    <p key={p}>{p}</p>
+                  ))}
+                </div>
+              </Reveal>
+
+              <div className="mt-8">
+                <TiltCard max={6} lift={6}>
+                  <ImageReveal
+                    direction="left"
+                    className="relative rounded-3xl border border-steel-150 bg-white shadow-e3"
+                  >
+                    <Img
+                      src="/img/automation/programmable-logic-controller.webp"
+                      alt="Inside a KONIN PLC control panel: controller modules, terminals and protection devices"
+                      sizes="(max-width: 1024px) 92vw, 36vw"
+                      className="aspect-4/3 w-full object-cover transition-transform duration-1100 ease-out-expo group-hover:scale-105"
+                    />
+                    <CornerTicks />
+                    <span aria-hidden="true" className="sheen" />
+                  </ImageReveal>
+                </TiltCard>
+              </div>
+            </div>
+
+            <div className="lg:col-span-7">
+              <Reveal direction="from-right">
+                <p className="mono-label text-brand-700">{control.capabilitiesIntro}</p>
+              </Reveal>
+              <Stagger as="ul" className="mt-5 grid gap-3 sm:grid-cols-2" step={0.05}>
+                {control.capabilities.map((c, i) => {
+                  const Icon = CONTROL_ICONS[i] ?? Check
+                  return (
+                    <StaggerItem
+                      as="li"
+                      key={c}
+                      direction={i % 2 === 0 ? 'from-left' : 'from-right'}
+                      distance={0.5}
+                      className="h-full"
+                    >
+                      <div className="group flex h-full items-center gap-4 rounded-xl border border-steel-150 bg-steel-50 p-4 transition-all duration-400 hover:-translate-y-0.5 hover:border-brand-200 hover:bg-white hover:shadow-e2">
+                        <span className="grid size-10 shrink-0 place-items-center rounded-lg border border-brand-100 bg-white text-brand-700 shadow-e1 transition-colors duration-400 group-hover:border-transparent group-hover:bg-brand-600 group-hover:text-white">
+                          <Icon className="size-4.5" aria-hidden="true" />
+                        </span>
+                        <span className="text-[14px] leading-snug font-medium text-ink-800">{c}</span>
+                      </div>
+                    </StaggerItem>
+                  )
+                })}
+              </Stagger>
+
+              <Reveal direction="scale" delay={0.1}>
+                <div className="mt-5 rounded-2xl border border-brand-100 bg-linear-to-br from-brand-50 via-white to-aqua-50 p-7 shadow-e1">
+                  <p className="mono-label text-brand-700">Integrated solutions</p>
+                  <p className="mt-3 text-[15px] leading-relaxed text-ink-800">
+                    {control.integration}
+                  </p>
+                  <div className="mt-6">
+                    <Btn to="/products/automation-solutions" variant="outline-ink">
+                      Explore automation solutions
+                    </Btn>
+                  </div>
+                </div>
+              </Reveal>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------------- Quality & testing ---------------- */}
+      <section
+        aria-labelledby="quality-title"
+        className="tone-tint-deep relative overflow-hidden section-y"
+      >
+        <GridBackdrop />
+        <Glow className="-top-32 -right-32" color="aqua" size="40rem" intensity={0.12} drift />
+
+        <div className="relative container-k">
+          <div className="grid gap-12 lg:grid-cols-12 lg:gap-14">
+            <div className="lg:col-span-5">
+              <Reveal direction="from-left">
+                <Eyebrow>Quality &amp; testing</Eyebrow>
+              </Reveal>
+              <LineReveal
+                as="h2"
+                id="quality-title"
+                className="h-section mt-5 text-ink-900"
+                lines={['Quality is part of', 'the process.']}
+                accentClassName="text-gradient"
+              />
+              <Reveal direction="from-left" delay={0.1}>
+                <p className="mt-6 text-[15.5px] leading-relaxed text-steel-600">
+                  {company.quality.intro}
+                </p>
+              </Reveal>
+
+              <Reveal direction="from-left" delay={0.14}>
+                <div className="mt-6 flex gap-4 rounded-2xl border border-brand-100 bg-white p-5 shadow-e1">
+                  <span className="grid size-10 shrink-0 place-items-center rounded-lg bg-linear-to-br from-brand-600 to-aqua-500 text-white shadow-brand">
+                    <Snowflake className="size-4.5" aria-hidden="true" />
+                  </span>
+                  <p className="text-[14px] leading-relaxed text-ink-800">
+                    {company.quality.lowTemperature}
+                  </p>
+                </div>
+              </Reveal>
+
+              <Reveal direction="from-bottom" delay={0.18}>
+                <div className="mt-8">
+                  <Btn to="/quality" variant="outline-ink" size="lg">
+                    Quality &amp; certifications
+                  </Btn>
+                </div>
+              </Reveal>
+            </div>
+
+            <div className="lg:col-span-7">
+              <Reveal direction="from-right">
+                <p className="mono-label text-brand-700">{company.quality.capabilitiesIntro}</p>
+              </Reveal>
+              {/* One ruled sheet rather than fourteen cards: the grid gap is
+                  the hairline, so the rules stay correct at one column and at
+                  two without any per-item border logic. */}
+              <Stagger
+                as="ol"
+                className="mt-5 grid gap-px overflow-hidden rounded-2xl border border-steel-150 bg-steel-150 shadow-e2 sm:grid-cols-2"
+                step={0.035}
+              >
+                {company.quality.capabilities.map((c, i) => (
+                  <StaggerItem
+                    as="li"
+                    key={c}
+                    direction="fade"
+                    className="group flex items-baseline gap-4 bg-white px-5 py-4 transition-colors duration-300 hover:bg-brand-25"
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="mono-label w-6 shrink-0 text-steel-400 tabular-nums transition-colors duration-300 group-hover:text-brand-600"
+                    >
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    <span className="text-[14px] leading-snug text-ink-800">{c}</span>
+                  </StaggerItem>
+                ))}
+              </Stagger>
+            </div>
+          </div>
+
+          {/* ---- Third-party inspection & specialized testing ---- */}
+          <Stagger className="mt-12 grid gap-5 lg:grid-cols-2" step={0.1}>
+            <StaggerItem as="article" direction="from-left" className="h-full">
+              <div className="flex h-full flex-col rounded-2xl border border-steel-150 bg-white p-7 shadow-e2">
+                <div className="flex items-center gap-4">
+                  <span className="grid size-11 shrink-0 place-items-center rounded-xl border border-brand-100 bg-linear-to-b from-brand-50 to-white text-brand-700 shadow-e1">
+                    <ShieldCheck className="size-5" aria-hidden="true" />
+                  </span>
+                  <h3 className="h-card text-ink-900">Third-party inspection</h3>
+                </div>
+                <p className="mt-5 text-[14.5px] leading-relaxed text-steel-600">
+                  {company.thirdPartyApproval}
+                </p>
+                <ul className="mt-auto flex flex-wrap gap-2 pt-6" aria-label="Inspection agencies">
+                  {company.inspectionAgencies.map((a) => (
+                    <li key={a}>
+                      <Chip>{a}</Chip>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </StaggerItem>
+
+            <StaggerItem as="article" direction="from-right" className="h-full">
+              <div className="flex h-full flex-col rounded-2xl border border-steel-150 bg-white p-7 shadow-e2">
+                <div className="flex items-center gap-4">
+                  <span className="grid size-11 shrink-0 place-items-center rounded-xl border border-signal-100 bg-linear-to-b from-signal-50 to-white text-signal-600 shadow-e1">
+                    <FlaskConical className="size-5" aria-hidden="true" />
+                  </span>
+                  <h3 className="h-card text-ink-900">Specialized testing</h3>
+                </div>
+                <p className="mt-5 text-[14.5px] leading-relaxed text-steel-600">
+                  {company.flowTesting}
+                </p>
+                <ul className="mt-auto flex flex-wrap gap-2 pt-6" aria-label="Specialized tests">
+                  {company.specializedTests.map((t) => (
+                    <li key={t}>
+                      <Chip>{t}</Chip>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </StaggerItem>
+          </Stagger>
         </div>
       </section>
 
@@ -281,7 +675,75 @@ export default function About() {
           </div>
         </div>
       </section>
-                      
+
+      {/* ---------------- Our commitment ---------------- */}
+      <section
+        aria-labelledby="commitment-title"
+        className="relative overflow-hidden bg-white section-y"
+      >
+        <GridBackdrop variant="fine" className="opacity-50" mask={false} />
+
+        <div className="relative container-k">
+          <Reveal>
+            <SectionHeading
+              id="commitment-title"
+              eyebrow="Our commitment"
+              align="center"
+              title={
+                <>
+                  Dependable solutions for{' '}
+                  <span className="text-gradient">demanding applications.</span>
+                </>
+              }
+              lead={company.commitment[0]}
+            />
+          </Reveal>
+          <Reveal delay={0.08}>
+            <p className="mx-auto mt-5 max-w-2xl text-center text-[15.5px] leading-relaxed text-steel-600">
+              {company.commitment[1]}
+            </p>
+          </Reveal>
+
+          {/* The four scopes of supply the paragraph above names, as a ladder:
+              each step fills one more segment of the gauge. */}
+          <Stagger
+            as="ol"
+            className="mx-auto mt-10 grid max-w-6xl gap-3 sm:grid-cols-2 lg:grid-cols-4"
+            step={0.09}
+          >
+            {company.supplyScopes.map((s, i) => (
+              <StaggerItem
+                as="li"
+                key={s}
+                direction={rowDirection(i, company.supplyScopes.length)}
+                className="h-full"
+              >
+                <div className="group flex h-full flex-col rounded-2xl border border-steel-150 bg-steel-50 p-5 transition-all duration-500 ease-out-expo hover:-translate-y-0.5 hover:border-brand-200 hover:bg-white hover:shadow-e2">
+                  <span aria-hidden="true" className="flex gap-1">
+                    {company.supplyScopes.map((_, j) => (
+                      <span
+                        key={j}
+                        className={`h-1.5 flex-1 rounded-full ${
+                          j <= i ? 'bg-linear-to-r from-brand-600 to-aqua-500' : 'bg-steel-200'
+                        }`}
+                      />
+                    ))}
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    className="mono-label mt-5 text-steel-400 transition-colors duration-400 group-hover:text-brand-600"
+                  >
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <span className="mt-2 font-display text-lg leading-tight font-bold text-ink-900">
+                    {s}
+                  </span>
+                </div>
+              </StaggerItem>
+            ))}
+          </Stagger>
+        </div>
+      </section>
 
       {/* ---------------- Markets ---------------- */}
       <section className="tone-tint-deep border-t border-steel-150 section-y-sm">

@@ -5,27 +5,27 @@ import { TiltCard, Layer } from '../../components/ui/TiltCard'
 import { ImageReveal } from '../../components/fx'
 import { LineReveal, Reveal, rowDirection, Stagger, StaggerItem } from '../../lib/motion'
 
-/** Source: the testing regime KONIN publishes on its about page. */
+/** Source: "About KONIN Valves.docx", Quality & Testing. */
 const TESTS = [
   {
     icon: Ruler,
     title: 'Dimensional & pressure',
-    body: '100% of production is dimension and pressure tested before it leaves the works.',
+    body: '100% dimensional inspection and pressure testing, with material and performance testing as required.',
   },
   {
     icon: Microscope,
     title: 'Material soundness',
-    body: 'Spectro analysis, PMI, grain flow examination for forged parts, ultrasonic, MPI, DP and radiography.',
+    body: 'Spectrochemical analysis, PMI, grain flow examination for forged components, UT, MPI, DPT and RT.',
   },
   {
     icon: Gauge,
     title: 'Physical properties',
-    body: 'Hardness and tensile checks, ball roundness on CMM, and RA-value on stem and seating mating parts.',
+    body: 'Hardness and tensile testing, ball roundness inspection using CMM, and surface roughness (Ra) measurement.',
   },
   {
     icon: ShieldCheck,
     title: 'Environmental & low-temp',
-    body: 'Impact tested at room temperature and −101 °C. Salt spray testing on coated and painted parts for marine service.',
+    body: 'Impact testing at room and low temperatures, down to −101°C as required. Salt spray testing and coating thickness measurement.',
   },
 ]
 
@@ -92,7 +92,7 @@ export default function QualityProof() {
             />
             <Reveal direction="from-right" delay={0.1}>
               <p className="mt-5 max-w-2xl text-[15.5px] leading-relaxed text-steel-600">
-                {company.about[1]}
+                {company.quality.intro}
               </p>
             </Reveal>
 
@@ -126,13 +126,13 @@ export default function QualityProof() {
             <Reveal direction="scale" delay={0.12}>
               <div className="mt-4 grid gap-6 rounded-2xl border border-brand-100 bg-linear-to-br from-brand-50 to-white p-7 shadow-e1 md:grid-cols-2">
                 <div>
-                  <p className="mono-label text-brand-700">Third party approval</p>
+                  <p className="mono-label text-brand-700">Third-party inspection</p>
                   <p className="mt-3 text-[14px] leading-relaxed text-steel-600">
                     {company.thirdPartyApproval}
                   </p>
                 </div>
                 <div>
-                  <p className="mono-label text-signal-600">Flow &amp; fire testing</p>
+                  <p className="mono-label text-signal-600">Specialized testing</p>
                   <p className="mt-3 text-[14px] leading-relaxed text-steel-600">
                     {company.flowTesting}
                   </p>

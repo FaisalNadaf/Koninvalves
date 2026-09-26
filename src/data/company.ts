@@ -2,9 +2,37 @@
  * Company facts.
  *
  * EVERY value in this file is taken verbatim from either the legacy KONIN
- * website or one of the three supplied source documents. Nothing is inferred.
+ * website or one of the supplied source documents. Nothing is inferred.
  * Sources are noted per block so future edits stay honest.
+ *
+ * "About KONIN Valves.docx" is the most recent of those sources. Where it
+ * restates something the legacy site also said, its wording wins.
  */
+
+// Source: "About KONIN Valves.docx", opening paragraph
+const INTRO =
+  'KONIN Valves is a manufacturer of industrial valves and integrated automation solutions, delivering reliable flow-control and process solutions for a wide range of industrial applications.'
+
+// Source: "About KONIN Valves.docx", Quality & Testing
+const TESTING_CAPABILITIES = [
+  'Spectrochemical Analysis',
+  'Positive Material Identification (PMI)',
+  'Grain Flow Examination for Forged Components',
+  'Ultrasonic Testing (UT)',
+  'Magnetic Particle Inspection (MPI)',
+  'Dye Penetrant Testing (DPT)',
+  'Radiographic Testing (RT)',
+  'Hardness & Tensile Testing',
+  'Impact Testing at Room and Low Temperatures',
+  'Ball Roundness Inspection using CMM',
+  'Surface Roughness (Ra) Measurement',
+  'Salt Spray Testing',
+  'Coating Thickness Measurement',
+  'Rubber/Elastomer Composition, Tensile Strength and Shore A Hardness Testing',
+] as const
+
+// Source: "About KONIN Valves.docx", Third-Party Inspection & Specialized Testing
+const INSPECTION_AGENCIES = ['CEIL', 'BVQL', 'TÜV', 'Germanischer Lloyd', 'RITES'] as const
 
 export const company = {
   name: 'KONIN Valves',
@@ -15,16 +43,57 @@ export const company = {
   url: 'https://www.koninvalve.com',
   logo: '/img/brand/logo.webp',
 
-  // Source: konin-valves-pdf.pdf p4 "About Us" + legacy about page
-  positioning:
-    'KONIN Valves (An ISO 9001-2015 Co.) is a leading Manufacturer and Supplier of Industrial Valves. We focus to provide complete flow control solution under one roof with valve automation.',
+  // Source: "About KONIN Valves.docx", opening paragraph. Also the footer copy,
+  // the homepage "About KONIN" block and the Organization schema description.
+  positioning: INTRO,
 
-  // Source: legacy about-konin-valves.html
+  // Source: "About KONIN Valves.docx", About KONIN Valves
   about: [
-    'Konin Valves manufacture a wide range of valves like Ball, Butterfly, Gate, Globe, Check and Needle valves. These valves are available in FB and RB design with different pressure ratings. Valves at KONIN are manufactured as per applicable API / BIS / BS / DIN / ISO / EN series standards.',
-    'Apart from 100% dimension & pressure test our product undergoes different tests like spectro analysis, PMI, grain flow examination for forged parts, ultrasonic, MPI, DP and radiography to ensure composition and material soundness.',
-    'Impact at room temperature and minus 101°C is checked for low temperature valves. Hardness and tensile is checked to ensure physical properties. Ball roundness on CMM and RA-value for stem and seating mating parts are checked. Salt spray test is conducted on PTFE phosphate / zinc coated and painted parts to ensure resistance to rust under severe marine conditions.',
-    'Coating thickness is measured with a digital thickness measuring gauge to ensure uniformity and minimum coating / painting thickness. Rubber composition, tensile and shore "A" hardness are checked for seals.',
+    INTRO,
+    'Our product portfolio includes Ball Valves, Butterfly Valves, Gate Valves, Globe Valves, Check Valves, Needle Valves and other specialized valve solutions. Our valves are available in Full Bore (FB) and Reduced Bore (RB) designs, with different pressure ratings, materials and configurations to suit diverse operating requirements.',
+    'KONIN valves are manufactured in accordance with applicable API, BIS, BS, DIN, ISO and EN standards, with a strong focus on quality, dimensional accuracy, material integrity and dependable performance.',
+  ],
+
+  /** The standards and bore designs named in `about`, lifted out as chips. */
+  standards: ['API', 'BIS', 'BS', 'DIN', 'ISO', 'EN'],
+  boreDesigns: ['Full Bore (FB)', 'Reduced Bore (RB)'],
+
+  // Source: "About KONIN Valves.docx", Product Features & Configurations
+  productFeatures: {
+    intro: 'KONIN offers a wide range of valve designs and configurations, including:',
+    items: [
+      'Fire-Safe Valves as per applicable API 607 / API 6D requirements',
+      'Single-Piece, Two-Piece and Three-Piece Ball Valves',
+      'Two-Way and Three-Way Configurations',
+      'Full Bore and Reduced Bore Designs',
+      'PTFE, RPTFE (CFT), PEEK and Metal-Seated Options',
+      'Extended Stem Valves',
+      'Jacketed Bonnet / Jacketed Valve Configurations',
+      'Different pressure classes, materials and end connections',
+    ],
+  },
+
+  // Source: "About KONIN Valves.docx", Quality & Testing
+  quality: {
+    intro:
+      'At KONIN, quality is an integral part of our manufacturing process. In addition to 100% dimensional inspection and pressure testing, our products undergo comprehensive material and performance testing as required.',
+    capabilitiesIntro: 'Our inspection and testing capabilities include:',
+    capabilities: TESTING_CAPABILITIES,
+    lowTemperature:
+      'For low-temperature applications, impact testing can be carried out down to −101°C, as required.',
+  },
+
+  // Source: "About KONIN Valves.docx", Our Commitment
+  commitment: [
+    'At KONIN, we combine precision valve manufacturing, rigorous quality control and industrial automation expertise to provide dependable solutions for demanding applications.',
+    'Whether it is a standalone industrial valve, an automated valve assembly, a PLC control panel, or a complete PLC-SCADA-based process automation solution, our objective is to deliver reliable, application-focused engineering solutions.',
+  ],
+  /** The four scopes of supply named in the second `commitment` paragraph. */
+  supplyScopes: [
+    'Standalone industrial valve',
+    'Automated valve assembly',
+    'PLC control panel',
+    'Complete PLC-SCADA process automation',
   ],
 
   // Source: konin-valves-pdf.pdf p4 + legacy about page
@@ -42,13 +111,13 @@ export const company = {
     'Integrity & personal accountability',
   ],
 
-  // Source: legacy about page — third party approval paragraph
+  // Source: "About KONIN Valves.docx", Third-Party Inspection & Specialized Testing
   thirdPartyApproval:
-    'We offer our products with third party inspection agencies like CEIL, BVQL, TUV, Germanischer Lloyd and RITES.',
+    'KONIN products can be supplied with third-party inspection and certification based on customer and project requirements. Inspection can be coordinated with recognized agencies such as CEIL, BVQL, TÜV, Germanischer Lloyd and RITES.',
+  inspectionAgencies: INSPECTION_AGENCIES,
   flowTesting:
-    'Critical tests like co-efficient of flow (Cv value) are checked at FCRI, Palghat. "Fire safe" and cryogenic tests can be conducted as and when required with our side laboratory.',
-  salientFeatures:
-    'Valves are with fire safe design as per API 607 and API 6D — single piece, 2 piece, 2 way and 3 way — with different types of seat material such as PTFE, RPTFE (CFT), PEEK and metal seated. Valves with extended stem / jacketed bonnet are also available.',
+    'Specialized testing can also be arranged through suitable accredited facilities. Coefficient of Flow (Cv Value) testing can be carried out through FCRI, Palakkad, while Fire Safe and Cryogenic Testing can be arranged as required.',
+  specializedTests: ['Cv Value testing at FCRI, Palakkad', 'Fire Safe Testing', 'Cryogenic Testing'],
 
   // Source: konin-valves-pdf.pdf p4 (address block) + legacy contact page
   address: {
@@ -100,28 +169,31 @@ export const company = {
     'Complete valve automation in pneumatic as well as electrical actuators.',
   ],
 
-  // Source: legacy index.html "Key Highlights"
+  // Figures from legacy index.html "Key Highlights", worded to match
+  // "About KONIN Valves.docx". The legacy "12+ tests per product" is replaced by
+  // the count of published capabilities: the DOCX says tests run "as required",
+  // not on every product.
   highlights: [
     {
       value: '100%',
       label: 'Dimensional & pressure tested',
-      detail: 'Every valve undergoes 100% dimension and pressure testing before dispatch.',
+      detail: '100% dimensional inspection and pressure testing, with material and performance testing as required.',
     },
     {
-      value: '12+',
-      label: 'Quality tests per product',
+      value: String(TESTING_CAPABILITIES.length),
+      label: 'Inspection & testing capabilities',
       detail:
-        'Including spectro analysis, PMI, grain flow examination, ultrasonic, MPI, DP and radiography.',
+        'From spectrochemical analysis and PMI to radiography, CMM ball roundness and salt spray testing.',
     },
     {
       value: '−101°C',
-      label: 'Low-temperature impact tested',
-      detail: 'Impact tested at room temperature and at −101°C for low temperature valves.',
+      label: 'Low-temperature impact testing',
+      detail: 'Impact testing at room and low temperatures, down to −101°C for low-temperature applications.',
     },
     {
-      value: '5',
-      label: 'Third-party inspection bodies',
-      detail: 'Approved by CEIL, TUV, BVQL, RITES and Germanischer Lloyd.',
+      value: String(INSPECTION_AGENCIES.length),
+      label: 'Third-party inspection agencies',
+      detail: 'Inspection can be coordinated with CEIL, BVQL, TÜV, Germanischer Lloyd and RITES.',
     },
   ],
 
@@ -174,6 +246,31 @@ export const automationDivision = {
   ],
   panelBuilderNote:
     'As a brand-independent panel builder, our engineers and technicians apply their considerable flexibility, knowledge and skills every single day.',
+
+  // Source: "About KONIN Valves.docx", Automation & Control Solutions. The
+  // closing sentence's em dash is set as a comma; the wording is otherwise as
+  // supplied.
+  control: {
+    intro: [
+      'Along with our valve manufacturing capabilities, KONIN provides complete automation and control solutions for industrial processes.',
+      'We design and manufacture electrical control panels and automation systems integrated with PLC controllers and SCADA systems, enabling efficient monitoring, control and automation of industrial processes.',
+    ],
+    capabilitiesIntro: 'Our automation solutions can include:',
+    capabilities: [
+      'PLC-based process control systems',
+      'SCADA-based monitoring and supervisory control',
+      'Electrical & PLC control panel manufacturing',
+      'Valve automation and actuator control',
+      'Automatic process sequencing and interlocking',
+      'Real-time process monitoring',
+      'Alarm and event management',
+      'Data acquisition and system visualization',
+      'Remote monitoring and operational control',
+      'Integration of valves, instruments, sensors and field devices',
+    ],
+    integration:
+      'This combination of industrial valves, automation panels, PLC control and SCADA-based monitoring enables KONIN to provide integrated solutions, from individual valve supply to complete automated process-control systems.',
+  },
   // Source: automation PDF p6
   plcBrands: ['Allen Bradley', 'Siemens', 'Delta', 'Mitsubishi', 'Selec'],
   busSystems: [

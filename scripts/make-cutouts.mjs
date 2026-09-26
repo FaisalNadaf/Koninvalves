@@ -9,6 +9,7 @@
  * preserved. A one-pixel alpha feather removes the jagged edge.
  *
  * Run:  node scripts/make-cutouts.mjs
+ *       node scripts/make-cutouts.mjs products/a.webp gallery/b.webp   (only those)
  */
 import fs from 'node:fs'
 import path from 'node:path'
@@ -24,13 +25,19 @@ fs.mkdirSync(OUT, { recursive: true })
  * Every studio product photograph in the catalogue. Sources that turn out not
  * to sit on a light background, or where too little would be removed, are
  * skipped automatically — the site falls back to the original file.
+ *
+ * Paths passed on the command line (relative to public/img) limit the run to
+ * those files, so adding one photograph does not rewrite every existing cut-out.
  */
-const TARGETS = ['products', 'gallery'].flatMap((dir) =>
-  fs
-    .readdirSync(path.join(IMG, dir))
-    .filter((f) => f.endsWith('.webp'))
-    .map((f) => `${dir}/${f}`)
-)
+const ONLY = process.argv.slice(2)
+const TARGETS = ONLY.length
+  ? ONLY
+  : ['products', 'gallery'].flatMap((dir) =>
+      fs
+        .readdirSync(path.join(IMG, dir))
+        .filter((f) => f.endsWith('.webp'))
+        .map((f) => `${dir}/${f}`)
+    )
 
 const TOLERANCE = 30 // per-channel distance from the sampled border colour
 

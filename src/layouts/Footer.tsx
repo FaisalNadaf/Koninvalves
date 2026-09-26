@@ -248,16 +248,12 @@ export default function Footer() {
         {/* Three even columns rather than `justify-between`: with flex the
             middle item only lands on the centre of the bar when the two outer
             ones happen to be the same width, and they are not. */}
-        {/* The last row on the site: a plain fade, nothing that moves. */}
-        <Stagger
-          className="container-k grid gap-3 py-5 text-center text-[12.5px] text-steel-500 sm:grid-cols-3 sm:items-center sm:gap-6"
-          step={0.1}
-        >
-          <StaggerItem
-            direction="fade"
-            as="div"
-            className="flex items-center justify-center gap-2.5 sm:justify-self-start"
-          >
+        {/* The last row on the site, rendered without a reveal. It sits flush
+            with the bottom of the document, inside the band the reveal margin
+            excludes, so on a one-row desktop layout it could never count as
+            in view and stayed invisible. */}
+        <div className="container-k grid gap-3 py-5 text-center text-[12.5px] text-steel-500 sm:grid-cols-3 sm:items-center sm:gap-6">
+          <div className="flex items-center justify-center gap-2.5 sm:justify-self-start">
             <span
               className="relative inline-flex size-1.5 shrink-0 rounded-full bg-signal-500"
               aria-hidden="true"
@@ -265,13 +261,13 @@ export default function Footer() {
               <span className="anim-pulse-ring absolute inset-0 rounded-full bg-signal-500" />
             </span>
             ISO 9001:2015 Certified · Belagavi, Karnataka
-          </StaggerItem>
+          </div>
 
-          <StaggerItem direction="fade" as="div" className="sm:justify-self-center">
+          <div className="sm:justify-self-center">
             © {new Date().getFullYear()} {company.name}. All rights reserved.
-          </StaggerItem>
+          </div>
 
-          <StaggerItem direction="fade" as="div" className="sm:justify-self-end">
+          <div className="sm:justify-self-end">
             Designed and Developed by{' '}
             <a
               href="https://cubiccode.in/"
@@ -281,8 +277,8 @@ export default function Footer() {
             >
               Cubiccode
             </a>
-          </StaggerItem>
-        </Stagger>
+          </div>
+        </div>
       </div>
     </footer>
   )

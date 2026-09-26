@@ -11,8 +11,9 @@ export const categories: Category[] = [
     name: 'Industrial Valves',
     shortName: 'Valves',
     tagline: 'Flow control, engineered',
+    // Standards list per "About KONIN Valves.docx".
     summary:
-      'Ball, butterfly, gate, globe, check, knife gate, needle and automatic control valves — manufactured to API, BS, DIN, ISO and EN standards.',
+      'Ball, butterfly, gate, globe, check, knife gate, needle and automatic control valves, manufactured to applicable API, BIS, BS, DIN, ISO and EN standards.',
     description: [
       'KONIN manufactures a complete industrial valve range in cast and forged construction, from 6 mm instrument needle valves to 1800 mm double flanged butterfly valves.',
       'Every valve is built to the applicable API / BIS / BS / DIN / ISO / EN series standard, and 100% of production is dimension and pressure tested before dispatch.',
@@ -45,8 +46,9 @@ export const categories: Category[] = [
     name: 'Automation Solutions',
     shortName: 'Automation',
     tagline: 'Panels, PLCs and plant control',
+    // PLC and SCADA integration per "About KONIN Valves.docx".
     summary:
-      'Electrical control panels, PLC programming and electrical maintenance — designed, built and supported by KONIN’s own engineering team.',
+      'Electrical control panels and automation systems integrated with PLC and SCADA, designed, built and supported by KONIN’s own engineering team.',
     description: [
       'KONIN Automation Solutions designs and builds a comprehensive range of electrical control panels, from power and motor control centres through to APFC, VFD and PLC panels.',
       'As a brand-independent panel builder, KONIN programs and integrates all established control platforms and supports plants through the full lifecycle — design, commissioning, maintenance and expansion.',

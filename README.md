@@ -28,11 +28,12 @@ npm run lint
 ## Where the content comes from
 
 Every product name, specification, material, standard, address and phone number
-on this site is transcribed from one of four KONIN sources. **Nothing is
+on this site is transcribed from one of five KONIN sources. **Nothing is
 invented.** If you add content, keep to the same rule and note the source.
 
 | Source | Used for |
 | --- | --- |
+| `About KONIN Valves.docx` (most recent; its wording wins where sources overlap) | Company introduction, automation & control capabilities, the 14 inspection and testing capabilities, third-party inspection and specialised testing, product features & configurations, commitment; lead studio photographs of the 1PC, 2PC and 3PC ball valves, PRV, on/off PRV, PSV and needle valve |
 | `konin-valves-pdf.pdf` (printed valve catalogue) | Valve size bands, MOC, seats, pressure ratings, operation, standards; company address, vision/mission, industries |
 | Legacy `koninvalve.com` product pages | Per-valve engineering tables (sizes by class, design/testing standards, materials), salient features |
 | `KONIN VALVES AND AUTOMATION SOLUTIONS.pdf` | Automation division text, the 11 panel types, PLC brands and bus systems, services |

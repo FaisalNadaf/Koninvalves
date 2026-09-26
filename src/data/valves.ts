@@ -11,6 +11,11 @@ import type { Product } from './types'
  * table is used as the primary specification (it is the more detailed of the
  * two) and catalogue-only fields — operation, additional standards, catalogue
  * size band — are added as extra rows. Nothing here is invented or inferred.
+ *
+ * The lead photographs of the 1PC, 2PC and 3PC ball valves, the three automatic
+ * control valves and the needle valve are KONIN's own studio shots, supplied in
+ * "About KONIN Valves.docx". The markings in each alt text are read off the
+ * photographed unit; they describe that unit, not the product's full range.
  */
 
 const APPLICATIONS_PROCESS = [
@@ -38,10 +43,14 @@ export const valves: Product[] = [
       'Bodies and inserts are available in WCB, CF8, CF8M and carbon steel, with a choice of soft seats — PTFE, CFT, GFT, Delrin, Nylon, PEEK — or metal seating for more demanding duties.',
     ],
     image: {
-      src: '/img/products/1-single-piece-ball-valves.webp',
-      alt: 'KONIN 1 (single) piece stainless steel ball valve with lever handle and screwed ends',
+      src: '/img/products/single-piece-ball-valve-konin.webp',
+      alt: 'KONIN 1 (single) piece ball valve with female screwed ends and red KONIN lever handle',
     },
     gallery: [
+      {
+        src: '/img/products/1-single-piece-ball-valves.webp',
+        alt: 'KONIN 1 (single) piece stainless steel ball valve with lever handle and screwed ends',
+      },
       {
         src: '/img/gallery/single-piece-ball-valve.webp',
         alt: 'Single piece ball valve body showing screwed end connection',
@@ -89,10 +98,14 @@ export const valves: Product[] = [
       'It is available up to 300 mm (12") in Class 150 and 300, and in reduced sizes for Class 600, 900 and 1500 service.',
     ],
     image: {
-      src: '/img/products/cast-steel-two-piece-cs-2-piece-ball-valves.webp',
-      alt: 'KONIN cast steel two piece ball valve with flanged ends and lever operation',
+      src: '/img/products/two-piece-ball-valve-flanged-konin.webp',
+      alt: 'KONIN two piece ball valve with flanged ends, CF8 body, PTFE seat and Class 150 nameplate',
     },
     gallery: [
+      {
+        src: '/img/products/cast-steel-two-piece-cs-2-piece-ball-valves.webp',
+        alt: 'KONIN cast steel two piece ball valve with flanged ends and lever operation',
+      },
       { src: '/img/gallery/high-pressure-ball-valve.webp', alt: 'High pressure ball valve assembly' },
       { src: '/img/products/ball-valve.webp', alt: 'Stainless steel ball valve close-up' },
     ],
@@ -127,16 +140,20 @@ export const valves: Product[] = [
     shortName: '3 Piece Ball Valve',
     group: 'Ball Valves',
     summary:
-      'Forged three-piece ball valve in Class 600 and 800 — the body splits for in-line seat and ball replacement.',
+      'Forged three-piece ball valve in Class 600 and 800. The body splits for in-line seat and ball replacement.',
     overview: [
       'The three-piece design lets the centre body be removed for maintenance without disturbing the end pieces welded or screwed into the line — the reason it is specified where in-situ serviceability matters.',
       'KONIN supplies the valve in forged WCB, CF8, CF8M and duplex materials with screwed, socket-weld and butt-weld ends.',
     ],
     image: {
-      src: '/img/products/forged-3-three-piece-ball-valves1.webp',
-      alt: 'KONIN forged three piece stainless steel ball valve with lever handle',
+      src: '/img/products/three-piece-ball-valve-screwed-konin.webp',
+      alt: 'KONIN three piece CF8 ball valve with screwed ends and red KONIN lever handle',
     },
     gallery: [
+      {
+        src: '/img/products/forged-3-three-piece-ball-valves1.webp',
+        alt: 'KONIN forged three piece stainless steel ball valve with lever handle',
+      },
       { src: '/img/gallery/three-piece-ball-valve.webp', alt: 'Three piece ball valve body assembly' },
       { src: '/img/products/forged-ball-valve.webp', alt: 'Forged ball valve with flanged connection' },
     ],
@@ -848,8 +865,8 @@ export const valves: Product[] = [
       'The pilot assembly reacts to changes in downstream pressure, allowing the main valve to modulate between the closed and open position, ensuring a constant downstream set pressure. Once the downstream pressure reaches the pilot setting, the main valve seals shut, preventing damage downstream. Pressure regulation is not dependent upon flow rate, resulting in minimal pressure loss through the valve.',
     ],
     image: {
-      src: '/img/products/pressure-reducing-valves-automatic-prv.webp',
-      alt: 'KONIN pilot operated automatic pressure reducing valve in ductile iron',
+      src: '/img/products/pressure-reducing-valve-konin.webp',
+      alt: 'KONIN pilot operated automatic pressure reducing valve, DN200 PN16 ductile iron GGG50 body',
     },
     quickFacts: [
       { label: 'Type', value: 'Pilot operated, modulating' },
@@ -892,8 +909,8 @@ export const valves: Product[] = [
       'The on/off variant of the KONIN automatic PRV operates the main valve between fully open and fully closed under pilot and solenoid control rather than modulating, for duties where staged isolation is preferred to continuous regulation.',
     ],
     image: {
-      src: '/img/products/on-off-type-pressure-reducing-valves.webp',
-      alt: 'KONIN on/off type automatic pressure reducing valve',
+      src: '/img/products/on-off-pressure-reducing-valve-konin.webp',
+      alt: 'KONIN on/off type automatic pressure reducing valve, DN200 PN16, with solenoid and pilot assembly',
     },
     quickFacts: [
       { label: 'Type', value: 'Pilot operated, on / off' },
@@ -929,8 +946,8 @@ export const valves: Product[] = [
       'The pressure relief / pressure sustaining valve holds a set minimum pressure upstream, opening to relieve excess pressure so that upstream demand is protected during surge or high-demand conditions.',
     ],
     image: {
-      src: '/img/products/automatic-pressure-relief-valves-pressure-sustaining-valves-psv.webp',
-      alt: 'KONIN automatic pressure relief and pressure sustaining valve',
+      src: '/img/products/pressure-relief-sustaining-valve-konin.webp',
+      alt: 'KONIN automatic pressure relief and pressure sustaining valve, DN200 PN16, with pilot assembly',
     },
     quickFacts: [
       { label: 'Type', value: 'Pilot operated relief / sustaining' },
@@ -968,10 +985,14 @@ export const valves: Product[] = [
       'KONIN supplies them in carbon steel, stainless steel, titanium and special alloys, with both male and female BSPT / NPT / BSP end connections.',
     ],
     image: {
-      src: '/img/products/high-pressure-needle-valves.webp',
-      alt: 'KONIN high pressure needle valve with T-bar handle',
+      src: '/img/products/needle-valve-konin.webp',
+      alt: 'KONIN SS 304 needle valve with ½" NPT female ends, 3000 PSI marking and T-bar handle',
     },
     gallery: [
+      {
+        src: '/img/products/high-pressure-needle-valves.webp',
+        alt: 'KONIN high pressure needle valve with T-bar handle',
+      },
       {
         src: '/img/products/high-pressure-needle-valves1.webp',
         alt: 'High pressure needle valve body detail',

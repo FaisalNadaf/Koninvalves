@@ -1,10 +1,11 @@
 import {
   ArrowUpRight,
   FileText,
+  FlaskConical,
   Gauge,
-  Layers,
   Microscope,
   Ruler,
+  ScanSearch,
   ShieldCheck,
   Snowflake,
   type LucideIcon,
@@ -46,80 +47,92 @@ type Regime = {
 }
 
 /**
- * Source: legacy about-konin-valves.html — the published testing regime.
+ * Source: "About KONIN Valves.docx", Quality & Testing. The six cards group
+ * the fourteen published capabilities (company.quality.capabilities) plus the
+ * 100% dimensional and pressure testing; every capability appears in exactly
+ * one card, under its published name.
  *
  * Each card carries a photograph of a KONIN product of the type the check
  * applies to: a forged body against the grain-flow examination, a ball valve
- * against the CMM roundness check, coated bodies against the salt spray test.
- * The photographs are of the range, not of a test in progress.
+ * against the CMM roundness check, a seated butterfly valve against the seal
+ * tests. The photographs are of the range, not of a test in progress.
  */
 const REGIME: Regime[] = [
   {
     icon: Ruler,
     title: 'Dimensional & pressure testing',
-    body: '100% of production undergoes dimension and pressure testing.',
-    methods: ['Dimension', 'Pressure', '100% of production'],
+    body: '100% dimensional inspection and pressure testing, in addition to material and performance testing as required.',
+    methods: ['Dimensional inspection', 'Pressure testing', '100%'],
     image: '/img/gallery/8-gtv-4.webp',
     imageAlt: 'A stacked batch of KONIN flanged gate valves awaiting dispatch',
   },
   {
     icon: Microscope,
-    title: 'Composition & soundness',
-    body: 'Spectro analysis, PMI, grain flow examination for forged parts, ultrasonic, MPI, DP and radiography.',
-    methods: ['Spectro', 'PMI', 'Grain flow', 'Ultrasonic', 'Radiography'],
+    title: 'Material composition',
+    body: 'Spectrochemical analysis, positive material identification (PMI) and grain flow examination for forged components.',
+    methods: ['Spectrochemical analysis', 'PMI', 'Grain flow examination'],
     image: '/img/gallery/forged-gate-valve.webp',
     imageAlt: 'A KONIN forged steel gate valve, its body stamped A105N',
   },
   {
-    icon: Gauge,
-    title: 'Physical properties',
-    body: 'Hardness and tensile testing. Ball roundness measured on CMM; RA-value checked on stem and seating mating parts.',
-    methods: ['Hardness', 'Tensile', 'CMM roundness', 'RA-value'],
-    image: '/img/gallery/three-piece-ball-valve.webp',
-    imageAlt: 'A KONIN flanged three-piece ball valve in stainless steel',
+    icon: ScanSearch,
+    title: 'Non-destructive testing',
+    body: 'Ultrasonic testing (UT), magnetic particle inspection (MPI), dye penetrant testing (DPT) and radiographic testing (RT).',
+    methods: ['UT', 'MPI', 'DPT', 'RT'],
+    image: '/img/gallery/double-offset-butterfly.webp',
+    imageAlt: 'A row of painted KONIN fabricated steel double-offset butterfly valves with electric actuators',
   },
   {
     icon: Snowflake,
-    title: 'Low temperature',
-    body: 'Impact tested at room temperature and at −101 °C for low temperature valves.',
-    methods: ['Impact', 'Room temperature', '−101 °C'],
+    title: 'Mechanical & low temperature',
+    body: 'Hardness and tensile testing, and impact testing at room and low temperatures. For low-temperature applications, impact testing can be carried out down to −101°C, as required.',
+    methods: ['Hardness', 'Tensile', 'Impact', '−101°C'],
     image: '/img/gallery/check-valve.webp',
     imageAlt: 'A KONIN cast swing check valve body, marked 80 150CL',
   },
   {
-    icon: ShieldCheck,
-    title: 'Corrosion & coating',
-    body: 'Salt spray testing on PTFE phosphate / zinc coated and painted parts. Coating thickness measured with a digital gauge for uniformity.',
-    methods: ['Salt spray', 'Coating thickness', 'Digital gauge'],
-    image: '/img/gallery/double-offset-butterfly.webp',
-    imageAlt: 'A row of painted KONIN double-offset butterfly valves with electric actuators',
+    icon: Gauge,
+    title: 'Precision measurement',
+    body: 'Ball roundness inspection using a CMM, and surface roughness (Ra) measurement.',
+    methods: ['CMM ball roundness', 'Surface roughness (Ra)'],
+    image: '/img/products/three-piece-ball-valve-screwed-konin.webp',
+    imageAlt: 'A KONIN three piece CF8 ball valve with screwed ends',
   },
   {
-    icon: Layers,
-    title: 'Seals',
-    body: 'Rubber composition, tensile and shore “A” hardness checked for seals.',
-    methods: ['Rubber composition', 'Tensile', 'Shore “A”'],
+    icon: ShieldCheck,
+    title: 'Coatings & elastomers',
+    body: 'Salt spray testing and coating thickness measurement, with composition, tensile strength and Shore A hardness testing for rubber and elastomer seals.',
+    methods: ['Salt spray', 'Coating thickness', 'Elastomer composition', 'Shore A'],
     image: '/img/gallery/butterfly-valve.webp',
     imageAlt: 'A large KONIN double-flanged butterfly valve, its seat ring visible in the bore',
   },
 ]
 
 /**
- * The bodies named in company.thirdPartyApproval, plus the flow laboratory
- * named in company.flowTesting.
+ * The agencies named in company.thirdPartyApproval, plus the flow laboratory
+ * named in company.flowTesting, which is a test facility rather than an
+ * inspector. The `role` line says which is which.
  *
  * The photographs are industrial grounds, not depictions: none of these images
  * shows the body's own works, which is why every one of them is decorative
  * (`alt=""`). The name is the content of the tile; the picture is the ground
  * behind it, and the scrim over it is what keeps the name legible.
  */
+const AGENCY_GROUNDS: Record<(typeof company.inspectionAgencies)[number], string> = {
+  CEIL: '/img/industries/refineries.webp',
+  BVQL: '/img/industries/oilgas.webp',
+  TÜV: '/img/industries/chemical.webp',
+  'Germanischer Lloyd': '/img/industries/marine.webp',
+  RITES: '/img/industries/pipeline.webp',
+}
+
 const INSPECTORS = [
-  { name: 'CEIL', image: '/img/industries/refineries.webp' },
-  { name: 'TUV', image: '/img/industries/chemical.webp' },
-  { name: 'BVQL', image: '/img/industries/oilgas.webp' },
-  { name: 'RITES', image: '/img/industries/pipeline.webp' },
-  { name: 'Germanischer Lloyd', image: '/img/industries/marine.webp' },
-  { name: 'FCRI, Palghat', image: '/img/industries/wtp.webp' },
+  ...company.inspectionAgencies.map((name) => ({
+    name,
+    role: 'Third-party inspection',
+    image: AGENCY_GROUNDS[name],
+  })),
+  { name: 'FCRI, Palakkad', role: 'Cv value testing', image: '/img/industries/wtp.webp' },
 ]
 
 /* ------------------------------------------------------------------ */
@@ -229,6 +242,9 @@ function InspectorTile({
             className="absolute inset-0 bg-linear-to-t from-ink-950/90 via-ink-950/45 to-ink-950/10 transition-colors duration-700 group-hover:from-brand-950/88 group-hover:via-brand-950/38"
           />
           <Layer z={20} className="absolute inset-0 flex flex-col justify-end p-4">
+            <span className="mb-1.5 text-[10px] font-semibold tracking-[0.14em] text-aqua-300 uppercase">
+              {item.role}
+            </span>
             <span className="font-display text-[17px] leading-tight font-bold text-balance text-white">
               {item.name}
             </span>
@@ -333,8 +349,8 @@ export default function Quality() {
   return (
     <>
       <Seo
-        title="Quality, Testing & Certifications — ISO 9001:2015 | KONIN Valves"
-        description="KONIN Valves is ISO 9001:2015 certified. Every valve is 100% dimension and pressure tested, with PMI, radiography, ultrasonic and −101°C impact testing."
+        title="Quality, Testing & ISO 9001:2015 Certification | KONIN Valves"
+        description="KONIN Valves is ISO 9001:2015 certified. 100% dimensional and pressure testing, plus PMI, radiography, ultrasonic and impact testing to −101°C as required."
         path="/quality"
         image="/img/company/cert-iso.webp"
         schema={[breadcrumbSchema(TRAIL)]}
@@ -395,10 +411,11 @@ export default function Quality() {
               eyebrow="Testing regime"
               title={
                 <>
-                  Twelve-plus checks on <span className="text-gradient">every product.</span>
+                  {company.quality.capabilities.length} inspection &amp; testing{' '}
+                  <span className="text-gradient">capabilities.</span>
                 </>
               }
-              lead={company.about[1]}
+              lead={company.quality.intro}
             />
           </Reveal>
 
@@ -420,15 +437,31 @@ export default function Quality() {
             <div className="lg:col-span-5">
               <Reveal direction="from-left">
                 <SectionHeading
-                  eyebrow="Third-party approval"
+                  eyebrow="Third-party inspection"
                   title={
                     <>
-                      Inspected by bodies{' '}
-                      <span className="text-gradient">your client already trusts.</span>
+                      Independent inspection,{' '}
+                      <span className="text-gradient">when your project needs it.</span>
                     </>
                   }
                   lead={company.thirdPartyApproval}
                 />
+              </Reveal>
+
+              <Reveal direction="from-left" delay={0.12}>
+                <div className="mt-7 rounded-2xl border border-brand-100 bg-white/80 p-6 shadow-e1 backdrop-blur-sm">
+                  <div className="flex items-center gap-3">
+                    <span className="grid size-9 shrink-0 place-items-center rounded-lg border border-signal-100 bg-linear-to-b from-signal-50 to-white text-signal-600 shadow-e1">
+                      <FlaskConical className="size-4" aria-hidden="true" />
+                    </span>
+                    <h3 className="font-display text-lg leading-tight font-bold text-ink-900">
+                      Specialized testing
+                    </h3>
+                  </div>
+                  <p className="mt-4 text-[14px] leading-relaxed text-steel-600">
+                    {company.flowTesting}
+                  </p>
+                </div>
               </Reveal>
             </div>
 

@@ -17,7 +17,7 @@ npm run dev            # dev server
 npm run build          # sitemap + typecheck + static build of all 55 routes → dist/
 npm run preview        # serve dist/
 
-npm run build:images   # regenerate all imagery from the source PDFs + legacy site
+npm run build:images   # regenerate all imagery from the source PDFs, valve photos.docx + legacy site
 npm run lint
 ```
 
@@ -28,12 +28,13 @@ npm run lint
 ## Where the content comes from
 
 Every product name, specification, material, standard, address and phone number
-on this site is transcribed from one of five KONIN sources. **Nothing is
+on this site is transcribed from one of six KONIN sources. **Nothing is
 invented.** If you add content, keep to the same rule and note the source.
 
 | Source | Used for |
 | --- | --- |
 | `About KONIN Valves.docx` (most recent; its wording wins where sources overlap) | Company introduction, automation & control capabilities, the 14 inspection and testing capabilities, third-party inspection and specialised testing, product features & configurations, commitment; lead studio photographs of the 1PC, 2PC and 3PC ball valves, PRV, on/off PRV, PSV and needle valve |
+| `valve photos.docx` (photographs only) | Lead studio photographs of the wafer and double flanged butterfly valves, cast gate and globe valves, knife gate valve and air valve; gallery photographs of a swing check valve, a disc check valve, a needle valve batch, pneumatically actuated butterfly and ball valves, a gear-operated butterfly valve and a plant installation. `scripts/extract-docx-photos.mjs` records which heading each one sat under |
 | `konin-valves-pdf.pdf` (printed valve catalogue) | Valve size bands, MOC, seats, pressure ratings, operation, standards; company address, vision/mission, industries |
 | Legacy `koninvalve.com` product pages | Per-valve engineering tables (sizes by class, design/testing standards, materials), salient features |
 | `KONIN VALVES AND AUTOMATION SOLUTIONS.pdf` | Automation division text, the 11 panel types, PLC brands and bus systems, services |
@@ -49,6 +50,7 @@ src/data/
   water.ts       11 water solutions
   industries.ts  17 industries
   categories.ts  the three categories + lookup helpers
+  gallery.ts     gallery photographs that belong to no single product
   imageSizes.ts  AUTO-GENERATED — intrinsic image dimensions
 ```
 
@@ -132,19 +134,29 @@ render for visitors who prefer reduced motion.
 
 ## Images
 
-`npm run build:images` runs three steps:
+`npm run build:images` runs four steps:
 
 1. **`extract-pdf-images.mjs`** — pulls product and solution imagery out of the
    three PDFs and the legacy site, and optimises everything to WebP. The valve
    catalogue is a scan, so its pages are rasterised at native resolution and the
    missing product shots are cropped from known regions.
-2. **`make-cutouts.mjs`** — generates transparent-background versions of the
+2. **`extract-docx-photos.mjs`** — pulls the 13 photographs out of
+   `valve photos.docx` into `products/` and `gallery/` under descriptive names,
+   capped at 1200 px on the long edge. It checks the document's own order and
+   headings against its mapping table and stops if they disagree.
+3. **`make-cutouts.mjs`** — generates transparent-background versions of the
    studio product photos by flood-filling inward from the image border. This is
    what lets a product float over a photograph instead of stamping a white box
    onto it. Output mirrors the source directory (`products/`, `gallery/`)
-   because those folders contain different images that share filenames.
-3. **`gen-image-sizes.mjs`** — writes `src/data/imageSizes.ts` so every `<img>`
+   because those folders contain different images that share filenames. A
+   photograph on a dark or busy ground is skipped and shown as shot.
+4. **`gen-image-sizes.mjs`** — writes `src/data/imageSizes.ts` so every `<img>`
    carries explicit `width`/`height`. This is why CLS is 0.
+
+The gallery page is assembled from the product data — every product's lead
+photograph and `gallery` images, grouped by valve family — plus the few
+photographs in `src/data/gallery.ts` that belong to no single product. Each
+tile opens a full-size lightbox (`src/components/Lightbox.tsx`).
 
 `<Img>` reads those dimensions, lazy-loads by default, and takes `priority` for
 the LCP image only. `cutoutFor()` transparently upgrades a product photo to its

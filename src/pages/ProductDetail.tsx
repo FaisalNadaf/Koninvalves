@@ -129,17 +129,22 @@ export default function ProductDetail() {
                         onClick={() => setActive(i)}
                         aria-label={`Show image ${i + 1}: ${g.alt}`}
                         aria-current={i === active}
-                        className={`product-stage grid size-20 place-items-center overflow-hidden rounded-xl border p-2 transition-all duration-300 ${
+                        className={`product-stage grid size-20 grid-cols-1 grid-rows-1 place-items-center overflow-hidden rounded-xl border p-2 transition-all duration-300 ${
                           i === active
                             ? 'border-brand-500 shadow-e2 ring-2 ring-brand-500/25'
                             : 'border-steel-150 opacity-70 hover:-translate-y-0.5 hover:opacity-100 hover:shadow-e1'
                         }`}
                       >
+                        {/* Sized to the button, not to the picture. With the grid's
+                            default auto row, a percentage height resolved against a
+                            row that grew to fit the image, so a tall valve
+                            overflowed and showed only its top; the one fixed
+                            1fr row gives the image a definite box to fit inside. */}
                         <Img
                           src={cutoutFor(g.src) ?? g.src}
                           alt=""
                           sizes="80px"
-                          className="max-h-full w-auto object-contain"
+                          className="size-full object-contain"
                         />
                       </button>
                     </StaggerItem>

@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "node scripts/gen-seo.mjs && tsc -b && vite-react-ssg build",
-    "build:images": "node scripts/extract-pdf-images.mjs && node scripts/make-cutouts.mjs && node scripts/gen-image-sizes.mjs",
+    "build:images": "node scripts/extract-pdf-images.mjs && node scripts/extract-docx-photos.mjs && node scripts/make-cutouts.mjs && node scripts/gen-image-sizes.mjs",
     "preview": "vite preview",
     "lint": "oxlint src"
   },

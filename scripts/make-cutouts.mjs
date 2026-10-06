@@ -40,8 +40,23 @@ const TARGETS = ONLY.length
     )
 
 const TOLERANCE = 30 // per-channel distance from the sampled border colour
+const MIN_LIGHT = 215 // darkest border colour still treated as a studio background
+
+/**
+ * Photographs the defaults do not suit. Both are blue valves shot on a studio
+ * sweep that runs from mid grey in the top corners to pure white behind the
+ * product ("valve photos.docx"). Against the averaged corner colour that span
+ * is wider than the default tolerance, which left white patches beside the
+ * body and, for the globe valve, a corner average just under MIN_LIGHT. The
+ * valves are saturated blue, nowhere near the widened range.
+ */
+const OVERRIDES = {
+  'products/wafer-butterfly-valve-lever-konin.webp': { tolerance: 42 },
+  'products/cast-globe-valve-flanged-konin.webp': { tolerance: 45, minLight: 205 },
+}
 
 async function cutout(rel) {
+  const { tolerance = TOLERANCE, minLight = MIN_LIGHT } = OVERRIDES[rel] ?? {}
   const src = path.join(IMG, rel)
   if (!fs.existsSync(src)) {
     console.warn('  !! missing', rel)
@@ -77,15 +92,15 @@ async function cutout(rel) {
   bb /= 4
 
   // Only cut out photos that genuinely sit on a light studio background.
-  if (br < 215 || bg < 215 || bb < 215) {
+  if (br < minLight || bg < minLight || bb < minLight) {
     console.warn(`  -- ${rel}: background not light enough (${br | 0},${bg | 0},${bb | 0}) — skipped`)
     return false
   }
 
   const matches = (i) =>
-    Math.abs(data[i] - br) <= TOLERANCE &&
-    Math.abs(data[i + 1] - bg) <= TOLERANCE &&
-    Math.abs(data[i + 2] - bb) <= TOLERANCE
+    Math.abs(data[i] - br) <= tolerance &&
+    Math.abs(data[i + 1] - bg) <= tolerance &&
+    Math.abs(data[i + 2] - bb) <= tolerance
 
   // Flood fill from every border pixel — an explicit stack, not recursion.
   const outside = new Uint8Array(W * H)

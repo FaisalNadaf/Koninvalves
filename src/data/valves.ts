@@ -16,6 +16,11 @@ import type { Product } from './types'
  * control valves and the needle valve are KONIN's own studio shots, supplied in
  * "About KONIN Valves.docx". The markings in each alt text are read off the
  * photographed unit; they describe that unit, not the product's full range.
+ *
+ * The lead photographs of the wafer and double flanged butterfly valves, the
+ * cast gate and globe valves, the knife gate valve and the air valve, and the
+ * gallery shots credited to it below, come from "valve photos.docx" — see
+ * scripts/extract-docx-photos.mjs for which photograph sat under which heading.
  */
 
 const APPLICATIONS_PROCESS = [
@@ -252,10 +257,14 @@ export const valves: Product[] = [
       'Both rising and non-rising spindle configurations are available, with handwheel, gear or electric actuator operation.',
     ],
     image: {
-      src: '/img/products/cast-gate-valves.webp',
-      alt: 'KONIN cast steel gate valve with flanged ends and handwheel',
+      src: '/img/products/cast-gate-valve-flanged-konin.webp',
+      alt: 'KONIN cast steel gate valve with flanged ends and handwheel, body marked 6, 150 and WCB',
     },
     gallery: [
+      {
+        src: '/img/products/cast-gate-valves.webp',
+        alt: 'KONIN cast steel gate valve in a silver finish with flanged ends and blue handwheel',
+      },
       { src: '/img/gallery/gate-valve.webp', alt: 'Cast gate valve with rising spindle and handwheel' },
       { src: '/img/gallery/8-gtv-4.webp', alt: '8 inch KONIN gate valve' },
       { src: '/img/gallery/gun-metal-gate-valves.webp', alt: 'Gun metal gate valve' },
@@ -348,10 +357,14 @@ export const valves: Product[] = [
       'KONIN cast globe valves are offered in WCB, WC6, LCB, CF8, CF8M, CF3M and CN7M bodies for temperatures and media across the process range.',
     ],
     image: {
-      src: '/img/products/cast-globe-valves.webp',
-      alt: 'KONIN cast steel globe valve with flanged ends and handwheel',
+      src: '/img/products/cast-globe-valve-flanged-konin.webp',
+      alt: 'KONIN cast steel globe valve with flanged ends and handwheel, body marked 6, 150 and WCB with a flow arrow',
     },
     gallery: [
+      {
+        src: '/img/products/cast-globe-valves.webp',
+        alt: 'KONIN cast steel globe valve in a silver finish with flanged ends and handwheel',
+      },
       { src: '/img/gallery/ibr-globe-valve.webp', alt: 'IBR globe valve' },
       { src: '/img/gallery/15nb-20nb-ibr-globe-valve.webp', alt: '15NB and 20NB IBR globe valves' },
     ],
@@ -444,6 +457,10 @@ export const valves: Product[] = [
       alt: 'KONIN cast steel swing check valve with flanged ends',
     },
     gallery: [
+      {
+        src: '/img/gallery/swing-check-valve-flanged-konin.webp',
+        alt: 'KONIN cast swing check valve with flanged ends and bolted cover, body marked 24, 150, WCB and 600 MM',
+      },
       {
         src: '/img/gallery/check-valve.webp',
         alt: 'KONIN cast swing check valve with flanged ends',
@@ -540,6 +557,10 @@ export const valves: Product[] = [
         src: '/img/products/wafer-type-check-valve.webp',
         alt: 'Wafer type check valve showing disc and body',
       },
+      {
+        src: '/img/gallery/disc-check-valve-konin.webp',
+        alt: 'KONIN disc check valve in three views: seat face, disc and guide, and body marked KV-1004',
+      },
     ],
     quickFacts: [
       { label: 'Size range', value: '25 mm – 600 mm' },
@@ -600,10 +621,14 @@ export const valves: Product[] = [
       'A one-piece blowout-proof shaft, positive shaft-to-disc drive and a contoured disc keep torque low and flow resistance down. The integral mounting platform takes lever, gear, pneumatic or electric actuation directly.',
     ],
     image: {
-      src: '/img/products/butterfly-valve.webp',
-      alt: 'KONIN wafer type butterfly valve with lever handle and resilient seat',
+      src: '/img/products/wafer-butterfly-valve-lever-konin.webp',
+      alt: 'KONIN wafer type butterfly valve with lever handle and resilient seat, disc marked DN 100 CF 8',
     },
     gallery: [
+      {
+        src: '/img/products/butterfly-valve.webp',
+        alt: 'KONIN wafer type butterfly valve with lever handle and resilient seat',
+      },
       {
         src: '/img/gallery/butterfly-valve-with-actuator.webp',
         alt: 'KONIN wafer butterfly valve fitted with a pneumatic actuator',
@@ -682,8 +707,8 @@ export const valves: Product[] = [
       'KONIN offers this valve up to 1800 mm with resilient or metal-to-metal seating and the full actuation range.',
     ],
     image: {
-      src: '/img/products/double-flanged-butterfly-valve.webp',
-      alt: 'KONIN double flanged butterfly valve with gear operator and handwheel',
+      src: '/img/products/double-flanged-butterfly-valve-gear-konin.webp',
+      alt: 'KONIN double flanged butterfly valve with gear operator, handwheel and lifting eyes',
     },
     gallery: [
       {
@@ -800,10 +825,14 @@ export const valves: Product[] = [
       'KONIN offers uni-directional and bi-directional designs with replaceable seats and a choice of gate surface treatments — hardfacing, nitriding or chrome plating — selected against the abrasive duty.',
     ],
     image: {
-      src: '/img/products/knife-edge-valve.webp',
-      alt: 'KONIN knife edge gate valve with handwheel and wafer body',
+      src: '/img/products/knife-gate-valve-lugged-konin.webp',
+      alt: 'KONIN lugged knife edge gate valve with red handwheel, gate closed across the bore',
     },
     gallery: [
+      {
+        src: '/img/products/knife-edge-valve.webp',
+        alt: 'KONIN knife edge gate valve with handwheel and wafer body',
+      },
       {
         src: '/img/products/knife-edge-gate-valve.webp',
         alt: 'Knife edge gate valve with pneumatic cylinder actuator',
@@ -1001,6 +1030,10 @@ export const valves: Product[] = [
         src: '/img/gallery/high-pressure-needle-valve.webp',
         alt: 'High pressure needle valve assembly',
       },
+      {
+        src: '/img/gallery/needle-valves-batch-konin.webp',
+        alt: 'Rows of KONIN needle valves with T-bar handles, each body carrying a KONIN label',
+      },
     ],
     quickFacts: [
       { label: 'Size range', value: '15 mm – 50 mm' },
@@ -1040,8 +1073,8 @@ export const valves: Product[] = [
       'Air valves release accumulated air from the high points of a pipeline and admit air on draindown, protecting the line from air-lock, surge and vacuum collapse — standard fittings on water transmission mains.',
     ],
     image: {
-      src: '/img/products/air-valve.webp',
-      alt: 'KONIN double acting air release valve in ductile iron with flanged base',
+      src: '/img/products/air-valve-flanged-konin.webp',
+      alt: 'KONIN twin-chamber air valve with flanged base and nameplate, body marked 80, CI and PN10',
     },
     quickFacts: [
       { label: 'Size range', value: '25 mm – 600 mm' },
@@ -1110,6 +1143,14 @@ export const valves: Product[] = [
       alt: 'KONIN butterfly valve fitted with a pneumatic rack and pinion actuator',
     },
     gallery: [
+      {
+        src: '/img/gallery/pneumatic-actuated-butterfly-valve-konin.webp',
+        alt: 'KONIN wafer butterfly valve fitted with a KONIN pneumatic rotary actuator and limit switch box',
+      },
+      {
+        src: '/img/gallery/pneumatic-actuated-ball-valve-konin.webp',
+        alt: 'KONIN flanged ball valve fitted with a pneumatic actuator and limit switch box',
+      },
       {
         src: '/img/gallery/motorised-ball-valve.webp',
         alt: 'Motorised ball valve with electric actuator',

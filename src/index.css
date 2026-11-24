@@ -235,15 +235,15 @@
      sections carry their own internal structure, so they do not need a
      void above and below them to read as separate. */
 	.section-y {
-		padding-block: clamp(3.5rem, 6.5vw, 6.5rem);
+		padding-block: clamp(2.75rem, 4.75vw, 4.5rem);
 	}
 
 	.section-y-sm {
-		padding-block: clamp(2.5rem, 4.5vw, 4.25rem);
+		padding-block: clamp(2rem, 3.5vw, 3.25rem);
 	}
 
 	.section-y-lg {
-		padding-block: clamp(4.5rem, 8vw, 8rem);
+		padding-block: clamp(3.25rem, 6vw, 5.5rem);
 	}
 
 	/* ---- Surface tones -------------------------------------------------

@@ -94,7 +94,7 @@ export default function Category() {
   return (
     <>
       <Seo
-        title={`${cat.name} — ${products.length} Products | KONIN`}
+        title={`${cat.name} (${products.length} Products) | KONIN`}
         description={cat.summary}
         path={cat.path}
         image={cat.cardImage.src}

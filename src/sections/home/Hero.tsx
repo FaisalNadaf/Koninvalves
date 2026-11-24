@@ -197,7 +197,7 @@ export default function Hero() {
 					className="anim-fade-up mx-auto mt-6 max-w-2xl text-[15px] leading-relaxed text-steel-700 sm:mt-7 sm:text-[1.0625rem] sm:leading-[1.68]"
 					style={{ animationDelay: "340ms" }}>
 					KONIN manufactures a complete industrial valve range and delivers
-					electrical automation and water treatment solutions — engineered,
+					electrical automation and water treatment solutions, engineered,
 					built and supported under one roof in Belagavi, Karnataka.
 				</p>
 

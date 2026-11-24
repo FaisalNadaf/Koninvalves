@@ -219,7 +219,7 @@ export default function IndustriesReveal() {
                   <Link
                     key={ind.slug}
                     to="/industries"
-                    aria-label={`${ind.name} — an industry KONIN serves`}
+                    aria-label={`${ind.name}, an industry KONIN serves`}
                     aria-hidden={!isFront}
                     tabIndex={isFront ? 0 : -1}
                     draggable={false}

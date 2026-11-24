@@ -39,15 +39,14 @@ export default function PageHero({
             sizes="100vw"
             className="absolute inset-0 -z-20 size-full object-cover object-[70%_center]"
           />
-          {/* Opaque behind the copy, gone by the middle — the photograph keeps
-              the whole right half of the band. */}
+          {/* Opaque behind the copy, clear by about 70% across — the right of
+              the band shows the photograph at full strength instead of through
+              a white wash. The stops sit past the headline's usual end so the
+              copy keeps its ground; only the longest title reaches the clear
+              part, and its dark weight carries there on its own. */}
           <span
             aria-hidden="true"
-            className="absolute inset-0 -z-10 bg-linear-to-r from-white via-white/88 to-transparent sm:via-white/80"
-          />
-          <span
-            aria-hidden="true"
-            className="absolute inset-x-0 bottom-0 -z-10 h-24 bg-linear-to-t from-canvas to-transparent"
+            className="absolute inset-0 -z-10 bg-linear-to-r from-white via-white/88 to-transparent sm:from-white sm:from-30% sm:via-white/65 sm:via-52% sm:to-transparent sm:to-72%"
           />
           {/* Below `sm` the copy runs the full width, so it crosses the picture
               and needs a veil the wide layout does not. */}
@@ -58,7 +57,16 @@ export default function PageHero({
         aria-hidden="true"
         className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_60%_70%_at_8%_40%,rgba(30,134,214,0.12),transparent_62%)]"
       />
-      <GridBackdrop className="-z-10 opacity-45" />
+      {/* Over a photograph the grid stays on the copy side; across the picture
+          it read as a screen-door over the image. */}
+      {image ? (
+        <GridBackdrop
+          mask={false}
+          className="-z-10 opacity-45 mask-[linear-gradient(to_right,#000_20%,transparent_50%)]"
+        />
+      ) : (
+        <GridBackdrop className="-z-10 opacity-45" />
+      )}
       <Glow className="-top-32 left-1/4 -z-10" size="32rem" intensity={0.12} drift />
       <span
         aria-hidden="true"

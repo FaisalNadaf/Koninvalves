@@ -48,8 +48,8 @@ function GroupButton({
           to={href}
           aria-label={
             filtered
-              ? `${group.name} — ${count} ${count === 1 ? 'product' : 'products'} in ${cat.name}`
-              : `${group.name} — explore ${cat.name}`
+              ? `${group.name}: ${count} ${count === 1 ? 'product' : 'products'} in ${cat.name}`
+              : `${group.name}: explore ${cat.name}`
           }
           className="relative flex h-full flex-col overflow-hidden rounded-xl border border-steel-150 bg-white p-3.5 shadow-e1 transition-all duration-500 group-hover:border-brand-200 group-hover:shadow-e3"
         >
@@ -86,7 +86,7 @@ export default function Products() {
   return (
     <>
       <Seo
-        title="Products & Solutions — Valves, Automation, Water Treatment | KONIN"
+        title="Products & Solutions: Valves, Automation, Water Treatment | KONIN"
         description={`Explore KONIN's ${total} products and solutions across three categories: industrial valves, electrical automation solutions and water treatment solutions.`}
         path="/products"
         schema={[
@@ -101,8 +101,8 @@ export default function Products() {
       <PageHero
         eyebrow="Products & Solutions"
         title="Three categories, one engineering partner"
-        lead={`${total} products and solutions — from a 6 mm instrument needle valve to a 1800 mm double flanged butterfly valve.`}
-        image="/img/company/plant-3.webp"
+        lead={`${total} products and solutions, from a 6 mm instrument needle valve to a 1800 mm double flanged butterfly valve.`}
+        image="/img/heroes/products-valve-manifold-engineer.webp"
         imageAlt=""
       />
 
@@ -122,7 +122,7 @@ export default function Products() {
         <Glow className="top-1/4 -left-40" size="42rem" intensity={0.13} drift />
         <Glow className="right-0 bottom-0" color="aqua" size="36rem" intensity={0.12} />
 
-        <div className="relative container-k space-y-14 lg:space-y-16">
+        <div className="relative container-k space-y-12 lg:space-y-14">
           {categories.map((cat, i) => {
             const flip = i % 2 === 1
             const cut = cutoutFor(cat.cardImage.src)
@@ -134,17 +134,9 @@ export default function Products() {
             for (const p of products) counts.set(p.group, (counts.get(p.group) ?? 0) + 1)
 
             return (
-              /* One chapter, one screenful.
-                 `min-h`, not `h`: the tallest chapter is sized below to fit
-                 inside 80vh on a normal laptop, but a short viewport — a
-                 landscape phone, a 720 px window — would otherwise have to clip
-                 nine sub-families to obey a fixed height. As a floor the
-                 chapter simply grows on those screens instead, and everywhere
-                 else it centres inside its screenful. */
-              <article
-                key={cat.key}
-                className="lg:flex lg:min-h-[80vh] lg:flex-col lg:justify-center"
-              >
+              /* Sized to its content. A screenful-tall chapter centred its
+                 content and left a dead band above and below every category. */
+              <article key={cat.key}>
                 <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-12">
                   {/* ---- Visual ---- */}
                   <div className={`lg:col-span-5 ${flip ? 'lg:order-2' : ''}`}>

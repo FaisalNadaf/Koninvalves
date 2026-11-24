@@ -58,8 +58,8 @@ export default function ProductDetail() {
   // Keep the <title> inside the ~70 char SERP limit: fall back to the short
   // product name, then drop the category segment, before allowing a truncation.
   const titleCandidates = [
-    `${product.name} — ${cat.shortName} | KONIN`,
-    `${product.shortName ?? product.name} — ${cat.shortName} | KONIN`,
+    `${product.name} | ${cat.shortName} | KONIN`,
+    `${product.shortName ?? product.name} | ${cat.shortName} | KONIN`,
     `${product.shortName ?? product.name} | KONIN`,
   ]
   const pageTitle = titleCandidates.find((t) => t.length <= 70) ?? titleCandidates[2]
@@ -364,7 +364,7 @@ export default function ProductDetail() {
                     <p className="text-[12.5px] leading-relaxed text-brand-900">
                       {hasTables
                         ? 'Specifications are published by KONIN. Confirm the final selection against your line conditions with our engineering team.'
-                        : 'KONIN does not publish fixed ratings for this item — each build is engineered to the application.'}
+                        : 'KONIN does not publish fixed ratings for this item. Each build is engineered to the application.'}
                     </p>
                   </div>
                 </Reveal>

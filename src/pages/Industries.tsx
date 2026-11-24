@@ -46,7 +46,7 @@ function IndustryTile({ ind, index }: { ind: Industry; index: number }) {
               shorter picture. */}
           <Img
             src={ind.image}
-            alt={`${ind.name} — an industry served by KONIN valves and solutions`}
+            alt={`${ind.name}, an industry served by KONIN valves and solutions`}
             sizes={
               wide
                 ? '(max-width: 640px) 92vw, (max-width: 1024px) 92vw, 62vw'
@@ -81,7 +81,7 @@ export default function Industries() {
   return (
     <>
       <Seo
-        title="Industries Served — Water, Oil & Gas, Power | KONIN Valves"
+        title="Industries Served: Water, Oil & Gas, Power | KONIN Valves"
         description="KONIN valves, automation and water solutions serve water treatment, oil & gas, refineries, chemical, power, steel, mining and pulp & paper industries."
         path="/industries"
         image="/img/industries/oilgas.webp"
@@ -98,7 +98,7 @@ export default function Industries() {
         eyebrow="Industries served"
         title="Built for the plants that cannot stop"
         lead="KONIN valves, control panels and water solutions are specified across water, energy, process and heavy industry."
-        image="/img/industries/refineries.webp"
+        image="/img/heroes/industries-refinery-night.webp"
         imageAlt=""
       />
 
@@ -163,7 +163,7 @@ export default function Industries() {
 
       <CtaBand
         titleLines={['Tell us your', 'industry and duty.']}
-        lead="Media, temperature, pressure class and line size — we will specify the right valve, panel or control system for the application."
+        lead="Media, temperature, pressure class and line size: we will specify the right valve, panel or control system for the application."
       />
     </>
   )

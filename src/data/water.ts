@@ -28,8 +28,8 @@ export const waterSolutions: Product[] = [
       'The Class 100 controllers form the local controllers for the gate and control the gate’s VFD based on upstream and downstream water levels, under the supervision and control of the Class 300 master controller in either redundant or singular configuration. Remote communication can be achieved via a cellular network or VSAT communication.',
     ],
     image: {
-      src: '/img/water/dam-automation.webp',
-      alt: 'Dam gate automation system with local controllers and central master station',
+      src: '/img/water/dam-spillway-gates.webp',
+      alt: 'Row of radial gates on a dam releasing water downstream',
     },
     gallery: [
       {
@@ -60,11 +60,11 @@ export const waterSolutions: Product[] = [
     overview: [
       'Canal management is an important functionality for irrigation. The individual canal gates can be powered with an autonomous solar based power supply system.',
       'Scheduling can be done using the real time clock of the canal gate controller. Commands from the central centre can be communicated reliably via SMS, and the central centre can also send scheduling information via SMS to each canal controller.',
-      'As the system operation time is normally very small — only during gate operation — the system can be optimally designed with a solar power supply. The system is also capable of sending an alarm in the event of a system fault condition or unauthorised access.',
+      'As the system operation time is normally very small (only during gate operation), the system can be optimally designed with a solar power supply. The system is also capable of sending an alarm in the event of a system fault condition or unauthorised access.',
     ],
     image: {
-      src: '/img/water/canal-management.webp',
-      alt: 'Irrigation canal gate with solar powered controller',
+      src: '/img/water/canal-control-gate.webp',
+      alt: 'Water flowing through a canal control gate',
     },
     gallery: [
       { src: '/img/water/canal-management-2.webp', alt: 'Canal management system schematic' },
@@ -95,8 +95,8 @@ export const waterSolutions: Product[] = [
       'The system is capable of handling not only the pump house operations but also the condition monitoring of the motors and the power supply system. The vital information on pump house availability also provides the flexibility of taking counter measures at the need of the hour.',
     ],
     image: {
-      src: '/img/water/pump-house-automation.webp',
-      alt: 'Water pump house with automation and control equipment',
+      src: '/img/water/pump-house-pumps-pipework.webp',
+      alt: 'Pump room with motor-driven pumps, valves and stainless pipework',
     },
     gallery: [
       {
@@ -131,8 +131,8 @@ export const waterSolutions: Product[] = [
       'Easy integration of process instruments over HART, PROFIBUS DP or IO-Link ensures faster installation and commissioning.',
     ],
     image: {
-      src: '/img/water/water-treatment-plant-automation.webp',
-      alt: 'Water treatment plant with automated distributed control system',
+      src: '/img/water/water-treatment-clarifiers-filters.webp',
+      alt: 'Aerial view of a water treatment plant with clarifiers and filter beds',
     },
     gallery: [
       {
@@ -166,8 +166,8 @@ export const waterSolutions: Product[] = [
       'Phoenix Contact control technology helps the user to have a seamlessly integrated automation system. Along with wireless and remote communication technology and IT capability in the system, the user is able to monitor and control the system and also gets online data on effluent quantity and quality.',
     ],
     image: {
-      src: '/img/water/effluent-treatment-plant-automation.webp',
-      alt: 'Industrial effluent treatment plant with automation system',
+      src: '/img/water/effluent-treatment-basin.webp',
+      alt: 'Treatment basin with a travelling sludge collector bridge',
     },
     gallery: [
       {
@@ -201,8 +201,8 @@ export const waterSolutions: Product[] = [
       'The widespread plant is networked with a combination of wired and wireless network. Phoenix Contact offers specialised solutions for digester systems in the form of an intrinsically safe I/O system. The remote communication uses internet technology with industrial grade security for safe operation of the system.',
     ],
     image: {
-      src: '/img/water/sewage-treatment-plant-automation.webp',
-      alt: 'Sewage treatment plant with redundant automation and control network',
+      src: '/img/water/sewage-treatment-plant-aerial.webp',
+      alt: 'Aerial view of a sewage treatment plant with four circular clarifiers',
     },
     gallery: [
       {
@@ -238,8 +238,8 @@ export const waterSolutions: Product[] = [
       'Whether using solar based technology or the conventional desalination process, the complete process automation solution is offered with the standard product portfolio and technology. Water quality check, process control, and the storage and transportation applications are centrally controlled and monitored as required.',
     ],
     image: {
-      src: '/img/water/desalination-plant-automation.webp',
-      alt: 'Desalination plant automation and control equipment',
+      src: '/img/water/desalination-process-skid.webp',
+      alt: 'Stainless steel process pipework and pump on a treatment skid',
     },
     gallery: [
       {
@@ -273,8 +273,8 @@ export const waterSolutions: Product[] = [
       'The system is also flexible enough to monitor and record area-wise distribution and collection of water and waste water respectively. Water quality check can also be made an integrated function. Flexibility to use a mix of communication media like 2G, 3G, ISDN or PSTN enables designers to optimise the system as required.',
     ],
     image: {
-      src: '/img/water/water-distribution-collection-system.webp',
-      alt: 'Water distribution and collection SCADA communication architecture',
+      src: '/img/water/water-distribution-valves-mains.webp',
+      alt: 'Water mains with gate valves and a control valve in a distribution chamber',
     },
     quickFacts: [
       { label: 'Protocols', value: 'IEC 60870-5-104 · ODP · SQL' },
@@ -302,8 +302,8 @@ export const waterSolutions: Product[] = [
       'The system can also send alarm messages in case of a sudden increase in leakage due to pipeline breakage, to the concerned authorities. The system can be networked via GSM/GPRS or wireless radio network technology.',
     ],
     image: {
-      src: '/img/water/pipeline-condition-monitoring.webp',
-      alt: 'Pipeline leakage condition monitoring system with ultrasonic sensors',
+      src: '/img/water/pipeline-through-forest.webp',
+      alt: 'Three large water transmission pipelines running through a forest',
     },
     gallery: [
       {
@@ -337,8 +337,8 @@ export const waterSolutions: Product[] = [
       'The system can also take decisions based on the above or on billing information, to actuate the aeration process or to close or open the inflow or outflow valves as required in the respective cases. The data is recorded centrally over an ODP server for further analysis and online visualisation.',
     ],
     image: {
-      src: '/img/water/water-source-condition-monitoring.webp',
-      alt: 'Water source condition monitoring station with quality sensors',
+      src: '/img/water/water-source-intake-tower.webp',
+      alt: 'Water intake tower and access bridge on a reservoir',
     },
     gallery: [
       {
@@ -371,8 +371,8 @@ export const waterSolutions: Product[] = [
       'The system consists of the required solar panels, charging system and battery banks. Long life maintenance free VRLA batteries are used, along with battery and solar power monitoring to provide the health status of the station to the central server and local authorities via SMS.',
     ],
     image: {
-      src: '/img/water/autonomous-power-supply-system.webp',
-      alt: 'Solar autonomous power supply system for remote water installations',
+      src: '/img/water/autonomous-solar-power-station.webp',
+      alt: 'Remote station powered by solar panels with a communication mast',
     },
     gallery: [
       {

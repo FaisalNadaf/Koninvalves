@@ -35,11 +35,12 @@ import {
 } from '../components/ui'
 import { TiltCard } from '../components/ui/TiltCard'
 import { PremiumProductCard } from '../components/products/PremiumProductCard'
-import { Counter, ImageReveal, Marquee } from '../components/fx'
+import { Counter, ImageReveal } from '../components/fx'
 import { EASE, LineReveal, Reveal, rowDirection, Stagger, StaggerItem } from '../lib/motion'
 import { automationDivision, company } from '../data/company'
 import { valves } from '../data/valves'
 import CtaBand from '../sections/CtaBand'
+import GlobalReach from '../sections/home/GlobalReach'
 
 const TRAIL = [
   { name: 'Home', path: '/' },
@@ -140,7 +141,7 @@ export default function About() {
         eyebrow="About KONIN"
         title="Where perfection and precision need"
         lead="Industrial valves, electrical control panels and PLC-SCADA automation from one ISO 9001:2015 certified manufacturer."
-        image="/img/company/plant-1.webp"
+        image="/img/heroes/about-fabrication-welding.webp"
         imageAlt=""
       />
 
@@ -148,7 +149,7 @@ export default function About() {
       <section className="relative overflow-hidden bg-white section-y">
         <GridBackdrop variant="fine" className="opacity-50" mask={false} />
         <div className="relative container-k">
-          <div className="grid gap-12 lg:grid-cols-12 lg:gap-14">
+          <div className="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-14">
             <div className="lg:col-span-7">
               <Reveal direction="from-left">
                 <Eyebrow>The company</Eyebrow>
@@ -215,32 +216,33 @@ export default function About() {
                   <span aria-hidden="true" className="sheen" />
                 </ImageReveal>
               </TiltCard>
-
-              {/* Two by two: stacked in one column the four tiles ran the
-                  right-hand column well past the copy beside it. */}
-              <Stagger as="dl" className="mt-4 grid gap-3 sm:grid-cols-2" step={0.08}>
-                {company.highlights.map((h) => (
-                  <StaggerItem key={h.label} direction="from-right" className="h-full">
-                    <div className="group h-full rounded-2xl border border-steel-150 bg-steel-50 p-5 transition-all duration-500 hover:-translate-y-0.5 hover:border-brand-200 hover:bg-white hover:shadow-e2">
-                      <dt className="sr-only">{h.label}</dt>
-                      <dd>
-                        <Counter
-                          value={h.value}
-                          className="block font-display text-2xl leading-none font-bold text-brand-700 tabular-nums"
-                        />
-                        <p className="mt-2.5 text-[13.5px] leading-snug font-semibold text-ink-900">
-                          {h.label}
-                        </p>
-                        <p className="mt-2 text-[12.5px] leading-relaxed text-steel-500">
-                          {h.detail}
-                        </p>
-                      </dd>
-                    </div>
-                  </StaggerItem>
-                ))}
-              </Stagger>
             </div>
           </div>
+
+          {/* Four across under both columns. Under the photograph, even two by
+              two, the tiles ran the right-hand column ~230 px past the copy and
+              left a dead band before the next section. */}
+          <Stagger as="dl" className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4" step={0.08}>
+            {company.highlights.map((h) => (
+              <StaggerItem key={h.label} direction="from-right" className="h-full">
+                <div className="group h-full rounded-2xl border border-steel-150 bg-steel-50 p-5 transition-all duration-500 hover:-translate-y-0.5 hover:border-brand-200 hover:bg-white hover:shadow-e2">
+                  <dt className="sr-only">{h.label}</dt>
+                  <dd>
+                    <Counter
+                      value={h.value}
+                      className="block font-display text-2xl leading-none font-bold text-brand-700 tabular-nums"
+                    />
+                    <p className="mt-2.5 text-[13.5px] leading-snug font-semibold text-ink-900">
+                      {h.label}
+                    </p>
+                    <p className="mt-2 text-[12.5px] leading-relaxed text-steel-500">
+                      {h.detail}
+                    </p>
+                  </dd>
+                </div>
+              </StaggerItem>
+            ))}
+          </Stagger>
         </div>
       </section>
 
@@ -745,37 +747,10 @@ export default function About() {
         </div>
       </section>
 
-      {/* ---------------- Markets ---------------- */}
-      <section className="tone-tint-deep border-t border-steel-150 section-y-sm">
-        <div className="container-k">
-          <Reveal>
-            <SectionHeading
-              eyebrow="Where we supply"
-              title="Supplying across India"
-              lead={company.marketsNote}
-            />
-          </Reveal>
-        </div>
-
-        {/* The states are already travelling; the band only needs to arrive. */}
-        <Reveal direction="blur" amount={0.3} aria-hidden="true" className="mt-10">
-          <Marquee speed={62}>
-            {company.primaryStates.map((s) => (
-              <span key={s} className="flex items-center gap-8 pr-8">
-                <span className="font-display text-3xl leading-none font-bold whitespace-nowrap text-brand-800/20 transition-colors hover:text-brand-700 sm:text-4xl">
-                  {s}
-                </span>
-                <span className="size-1.5 rotate-45 bg-signal-500/60" />
-              </span>
-            ))}
-          </Marquee>
-        </Reveal>
-        <ul className="sr-only">
-          {company.primaryStates.map((s) => (
-            <li key={s}>{s}</li>
-          ))}
-        </ul>
-      </section>
+      {/* ---------------- Global supply ----------------
+          The same band as the homepage, so the country list lives in one place
+          (company.supplyCountries). */}
+      <GlobalReach />
 
       <CtaBand />
     </>

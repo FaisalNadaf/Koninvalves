@@ -45,7 +45,7 @@ export const valves: Product[] = [
       'Compact one-piece ball valve for screwed and socket-weld lines, rated to Class 800 with PTFE-family seats.',
     overview: [
       'The KONIN single piece ball valve is a compact, lever-operated quarter-turn valve built for small-bore screwed and socket-weld piping. Its one-piece body removes a potential leak path and keeps the installed envelope tight.',
-      'Bodies and inserts are available in WCB, CF8, CF8M and carbon steel, with a choice of soft seats — PTFE, CFT, GFT, Delrin, Nylon, PEEK — or metal seating for more demanding duties.',
+      'Bodies and inserts are available in WCB, CF8, CF8M and carbon steel, with a choice of soft seats (PTFE, CFT, GFT, Delrin, Nylon, PEEK) or metal seating for more demanding duties.',
     ],
     image: {
       src: '/img/products/single-piece-ball-valve-konin.webp',
@@ -77,7 +77,7 @@ export const valves: Product[] = [
       {
         label: 'End detail',
         value:
-          'SE — BS 21 (parallel / taper) / ASME B1.20.1 (NPT) threads · SWE — ASME B16.11',
+          'SE: BS 21 (parallel / taper) / ASME B1.20.1 (NPT) threads · SWE: ASME B16.11',
       },
       { label: 'Operation', value: 'Lever' },
     ],
@@ -120,9 +120,9 @@ export const valves: Product[] = [
       { label: 'End connection', value: 'Flanged · Screwed · Socket · Butt weld' },
     ],
     specs: [
-      { label: 'Sizes', value: '15 mm (½") to 300 mm (12") — Class 150, 300' },
-      { label: '', value: '15 mm (½") to 150 mm (6") — Class 600' },
-      { label: ' ', value: '15 mm (½") to 65 mm (2½") — Class 900 & 1500' },
+      { label: 'Sizes', value: '15 mm (½") to 300 mm (12"), Class 150, 300' },
+      { label: '', value: '15 mm (½") to 150 mm (6"), Class 600' },
+      { label: ' ', value: '15 mm (½") to 65 mm (2½"), Class 900 & 1500' },
       { label: 'Design standard', value: 'BS EN ISO 17292 (BS 5351)' },
       { label: 'Face to face', value: 'ASME B16.10, EN 558-2' },
       { label: 'Testing standard', value: 'API 598, BS 6755-1, EN 12266-1' },
@@ -147,7 +147,7 @@ export const valves: Product[] = [
     summary:
       'Forged three-piece ball valve in Class 600 and 800. The body splits for in-line seat and ball replacement.',
     overview: [
-      'The three-piece design lets the centre body be removed for maintenance without disturbing the end pieces welded or screwed into the line — the reason it is specified where in-situ serviceability matters.',
+      'The three-piece design lets the centre body be removed for maintenance without disturbing the end pieces welded or screwed into the line. That is why it is specified where in-situ serviceability matters.',
       'KONIN supplies the valve in forged WCB, CF8, CF8M and duplex materials with screwed, socket-weld and butt-weld ends.',
     ],
     image: {
@@ -178,7 +178,7 @@ export const valves: Product[] = [
       {
         label: 'End detail',
         value:
-          'SE — BS 21 (parallel / taper) / ASME B1.20.1 (NPT) threads · SWE — ASME B16.11 · BWE — ASME B16.25',
+          'SE: BS 21 (parallel / taper) / ASME B1.20.1 (NPT) threads · SWE: ASME B16.11 · BWE: ASME B16.25',
       },
       { label: 'Operation', value: 'Lever · Gear · Pneumatic actuator · Electric actuator' },
     ],
@@ -219,10 +219,10 @@ export const valves: Product[] = [
       { label: 'Fire test', value: 'API 607 / 6FA' },
     ],
     specs: [
-      { label: 'Sizes', value: '50 mm (2") to 750 mm (30") — Class 150 & 300' },
-      { label: '', value: '50 mm (2") to 600 mm (24") — Class 600' },
-      { label: ' ', value: '50 mm (2") to 400 mm (16") — Class 900' },
-      { label: '  ', value: '50 mm (2") to 300 mm (12") — Class 1500' },
+      { label: 'Sizes', value: '50 mm (2") to 750 mm (30"), Class 150 & 300' },
+      { label: '', value: '50 mm (2") to 600 mm (24"), Class 600' },
+      { label: ' ', value: '50 mm (2") to 400 mm (16"), Class 900' },
+      { label: '  ', value: '50 mm (2") to 300 mm (12"), Class 1500' },
       { label: 'Design standard', value: 'BS EN ISO 17292 (BS 5351), API 6D, ASME B16.34' },
       { label: 'Face to face', value: 'ASME B16.10' },
       {
@@ -230,7 +230,7 @@ export const valves: Product[] = [
         value: 'API 6D, API 598, EN 12266-1, ASME B16.34, API 607 / 6FA',
       },
       { label: 'End connection', value: 'Flanged' },
-      { label: 'End detail', value: 'FE — ASME B16.5 · BWE — ASME B16.25' },
+      { label: 'End detail', value: 'FE: ASME B16.5 · BWE: ASME B16.25' },
     ],
     materials: [
       { label: 'Body', value: 'A105, LF2' },
@@ -267,7 +267,11 @@ export const valves: Product[] = [
       },
       { src: '/img/gallery/gate-valve.webp', alt: 'Cast gate valve with rising spindle and handwheel' },
       { src: '/img/gallery/8-gtv-4.webp', alt: '8 inch KONIN gate valve' },
-      { src: '/img/gallery/gun-metal-gate-valves.webp', alt: 'Gun metal gate valve' },
+      {
+        src: '/img/gallery/gun-metal-gate-valves.webp',
+        alt: 'Gun metal gate valve',
+        caption: 'Gun Metal Gate Valve',
+      },
     ],
     quickFacts: [
       { label: 'Size range', value: '15 mm (½") – 900 mm (36")' },
@@ -275,8 +279,8 @@ export const valves: Product[] = [
       { label: 'Design standard', value: 'API 600 · API 6D' },
     ],
     specs: [
-      { label: 'Sizes', value: '15 mm (½") to 900 mm (36") — Class 150' },
-      { label: '', value: '15 mm (½") to 600 mm (24") — Class 300' },
+      { label: 'Sizes', value: '15 mm (½") to 900 mm (36"), Class 150' },
+      { label: '', value: '15 mm (½") to 600 mm (24"), Class 300' },
       { label: 'Catalogue size band', value: '25 mm – 600 mm (rising / non-rising spindle)' },
       { label: 'Design standard', value: 'API 600, API 6D, ASME B16.34' },
       { label: 'Face to face (flanged / butt weld end)', value: 'ASME B16.10, B16.25' },
@@ -320,16 +324,16 @@ export const valves: Product[] = [
       { label: 'Design standard', value: 'API 602 · BS 5352' },
     ],
     specs: [
-      { label: 'Sizes — screwed, socket & butt weld', value: '15 mm (½") to 50 mm (2") — Class 800 & 1500' },
-      { label: '', value: '15 mm (½") to 25 mm (1") — Class 2500' },
-      { label: 'Sizes — flanged (weld-on flanges)', value: '15 mm (½") to 50 mm (2") — Class 150, 300 & 600' },
+      { label: 'Sizes (screwed, socket & butt weld)', value: '15 mm (½") to 50 mm (2"), Class 800 & 1500' },
+      { label: '', value: '15 mm (½") to 25 mm (1"), Class 2500' },
+      { label: 'Sizes (flanged, weld-on flanges)', value: '15 mm (½") to 50 mm (2"), Class 150, 300 & 600' },
       { label: 'Design standard', value: 'API 602, BS 5352' },
       { label: 'Face to face', value: 'ASME B16.10' },
       { label: 'Testing standard', value: 'API 598 / EN 12266-1' },
       { label: 'End connection', value: 'Flanged, Screwed, Socket weld ends' },
       {
         label: 'End detail',
-        value: 'SE — BS 21 (parallel / taper) / ASME B1.20.1 (NPT) threads · SWE — ASME B16.11',
+        value: 'SE: BS 21 (parallel / taper) / ASME B1.20.1 (NPT) threads · SWE: ASME B16.11',
       },
       { label: 'Operation', value: 'Handwheel' },
     ],
@@ -353,7 +357,7 @@ export const valves: Product[] = [
     summary:
       'Flanged cast globe valve to 350 mm for throttling and regulating duty, designed to BS 1873 / ASME B16.34.',
     overview: [
-      'Globe valves give fine, repeatable control of flow rate — the disc moves perpendicular to the seat so the valve can be held part-open without the seat damage a gate valve would suffer.',
+      'Globe valves give fine, repeatable control of flow rate: the disc moves perpendicular to the seat so the valve can be held part-open without the seat damage a gate valve would suffer.',
       'KONIN cast globe valves are offered in WCB, WC6, LCB, CF8, CF8M, CF3M and CN7M bodies for temperatures and media across the process range.',
     ],
     image: {
@@ -374,9 +378,9 @@ export const valves: Product[] = [
       { label: 'Design standard', value: 'BS 1873 · ASME B16.34' },
     ],
     specs: [
-      { label: 'Sizes', value: '15 mm (½") to 350 mm (14") — Class 150' },
-      { label: '', value: '15 mm (½") to 350 mm (14") — Class 300' },
-      { label: ' ', value: '50 mm (2") to 300 mm (12") — Class 600' },
+      { label: 'Sizes', value: '15 mm (½") to 350 mm (14"), Class 150' },
+      { label: '', value: '15 mm (½") to 350 mm (14"), Class 300' },
+      { label: ' ', value: '50 mm (2") to 300 mm (12"), Class 600' },
       { label: 'Catalogue size band', value: '15 mm – 600 mm' },
       { label: 'Design standard', value: 'BS 1873, ASME B16.34' },
       { label: 'Face to face (flanged / butt weld end)', value: 'ASME B16.10, B16.25' },
@@ -403,7 +407,7 @@ export const valves: Product[] = [
     summary:
       'Forged steel globe valve for small-bore regulating duty up to Class 2500, per API 602 / BS 5352.',
     overview: [
-      'The forged globe valve pairs the throttling characteristic of a globe body with the pressure capability of a forged small-bore valve — the standard choice for instrument, drain and bypass lines on high-pressure systems.',
+      'The forged globe valve pairs the throttling characteristic of a globe body with the pressure capability of a forged small-bore valve. It is the standard choice for instrument, drain and bypass lines on high-pressure systems.',
     ],
     image: {
       src: '/img/products/forged-globe-valves.webp',
@@ -416,16 +420,16 @@ export const valves: Product[] = [
       { label: 'Design standard', value: 'API 602 · BS 5352' },
     ],
     specs: [
-      { label: 'Sizes — screwed, socket & butt weld', value: '15 mm (½") to 50 mm (2") — Class 800 & 1500' },
-      { label: '', value: '15 mm (½") to 25 mm (1") — Class 2500' },
-      { label: 'Sizes — flanged (weld-on flanges)', value: '15 mm (½") to 50 mm (2") — Class 150, 300 & 600' },
+      { label: 'Sizes (screwed, socket & butt weld)', value: '15 mm (½") to 50 mm (2"), Class 800 & 1500' },
+      { label: '', value: '15 mm (½") to 25 mm (1"), Class 2500' },
+      { label: 'Sizes (flanged, weld-on flanges)', value: '15 mm (½") to 50 mm (2"), Class 150, 300 & 600' },
       { label: 'Design standard', value: 'API 602, BS 5352' },
       { label: 'Face to face', value: 'ASME B16.10' },
       { label: 'Testing standard', value: 'API 598 / EN 12266-1' },
       { label: 'End connection', value: 'Flanged, Screwed, Socket weld ends' },
       {
         label: 'End detail',
-        value: 'SE — BS 21 (parallel / taper) / ASME B1.20.1 (NPT) threads · SWE — ASME B16.11',
+        value: 'SE: BS 21 (parallel / taper) / ASME B1.20.1 (NPT) threads · SWE: ASME B16.11',
       },
       { label: 'Operation', value: 'Handwheel' },
     ],
@@ -476,9 +480,9 @@ export const valves: Product[] = [
       { label: 'Pattern', value: 'Swing · Lift · Disc check' },
     ],
     specs: [
-      { label: 'Sizes', value: '15 mm (½") to 600 mm (24") — Class 150' },
-      { label: '', value: '15 mm (½") to 600 mm (24") — Class 300' },
-      { label: ' ', value: '50 mm (2") to 300 mm (12") — Class 600' },
+      { label: 'Sizes', value: '15 mm (½") to 600 mm (24"), Class 150' },
+      { label: '', value: '15 mm (½") to 600 mm (24"), Class 300' },
+      { label: ' ', value: '50 mm (2") to 300 mm (12"), Class 600' },
       { label: 'Catalogue size band', value: '25 mm – 600 mm' },
       { label: 'Type', value: 'Swing · Lift type · Disc check' },
       { label: 'Design standard', value: 'BS 1868, API 6D, ASME B16.34' },
@@ -516,16 +520,16 @@ export const valves: Product[] = [
       { label: 'Design standard', value: 'API 602 · BS 5352' },
     ],
     specs: [
-      { label: 'Sizes — screwed, socket & butt weld', value: '15 mm (½") to 50 mm (2") — Class 800 & 1500' },
-      { label: '', value: '15 mm (½") to 25 mm (1") — Class 2500' },
-      { label: 'Sizes — flanged (weld-on flanges)', value: '15 mm (½") to 50 mm (2") — Class 150, 300 & 600' },
+      { label: 'Sizes (screwed, socket & butt weld)', value: '15 mm (½") to 50 mm (2"), Class 800 & 1500' },
+      { label: '', value: '15 mm (½") to 25 mm (1"), Class 2500' },
+      { label: 'Sizes (flanged, weld-on flanges)', value: '15 mm (½") to 50 mm (2"), Class 150, 300 & 600' },
       { label: 'Design standard', value: 'API 602, BS 5352' },
       { label: 'Face to face', value: 'ASME B16.10' },
       { label: 'Testing standard', value: 'API 598 / EN 12266-1' },
       { label: 'End connection', value: 'Flanged, Screwed, Socket weld ends' },
       {
         label: 'End detail',
-        value: 'SE — BS 21 (parallel / taper) / ASME B1.20.1 (NPT) threads · SWE — ASME B16.11',
+        value: 'SE: BS 21 (parallel / taper) / ASME B1.20.1 (NPT) threads · SWE: ASME B16.11',
       },
     ],
     materials: [
@@ -546,7 +550,7 @@ export const valves: Product[] = [
     summary:
       'Compact wafer-pattern check valve from 25 mm to 600 mm, designed to API 6D / API 594.',
     overview: [
-      'The wafer check valve clamps between two flanges, giving non-return protection in a fraction of the face-to-face length of a flanged swing check — valuable where pipe runs are tight.',
+      'The wafer check valve clamps between two flanges, giving non-return protection in a fraction of the face-to-face length of a flanged swing check, which is valuable where pipe runs are tight.',
     ],
     image: {
       src: '/img/products/wafer-check-valve.webp',
@@ -583,7 +587,7 @@ export const valves: Product[] = [
     shortName: 'Dual Plate Check Valve',
     group: 'Check Valves',
     summary:
-      'Twin-plate wafer check valve from 50 mm to 700 mm — low weight, low pressure drop, fast closing.',
+      'Twin-plate wafer check valve from 50 mm to 700 mm: low weight, low pressure drop, fast closing.',
     overview: [
       'Dual plate check valves use two spring-loaded semicircular plates instead of a single swinging disc. They close faster, which reduces slam, and they are considerably lighter than an equivalent swing check.',
     ],
@@ -617,7 +621,7 @@ export const valves: Product[] = [
     summary:
       'Resilient-seated butterfly valve to 800 mm with a blowout-proof one-piece shaft and integral actuator platform.',
     overview: [
-      'The wafer butterfly valve is KONIN’s highest-volume product — a compact quarter-turn valve for isolation and coarse regulation across water, HVAC and process service.',
+      'The wafer butterfly valve is KONIN’s highest-volume product: a compact quarter-turn valve for isolation and coarse regulation across water, HVAC and process service.',
       'A one-piece blowout-proof shaft, positive shaft-to-disc drive and a contoured disc keep torque low and flow resistance down. The integral mounting platform takes lever, gear, pneumatic or electric actuation directly.',
     ],
     image: {
@@ -679,8 +683,8 @@ export const valves: Product[] = [
       'Tight sealing, consistent low torque',
       'Assured shaft sealing',
       'One-piece blowout-proof shaft',
-      'Reliable drive — positive shaft-disc connection',
-      'Lower resistance to flow — contoured disc',
+      'Reliable drive: positive shaft-disc connection',
+      'Lower resistance to flow: contoured disc',
       'Ease of installation',
       'Integral actuator mounting platform',
     ],
@@ -796,7 +800,7 @@ export const valves: Product[] = [
       { label: 'Seat', value: 'Nitrile rubber, EPDM, Viton, Metal' },
     ],
     features: [
-      'Self-energising disc seal — bi-directional bubble-tight sealing',
+      'Self-energising disc seal: bi-directional bubble-tight sealing',
       'Assured sealing to atmosphere',
       'Lighter and stronger construction',
       'Lower torque, longer life',
@@ -822,7 +826,7 @@ export const valves: Product[] = [
       'Wafer and lugged knife gate valve to 800 mm with a hardened cutting edge for slurries, pulp and sediment-laden media.',
     overview: [
       'A sharp, heavy-duty knife edge at the bottom of the gate shears through solid sediment as the valve closes, giving reliable shut-off on media that would jam a conventional gate valve.',
-      'KONIN offers uni-directional and bi-directional designs with replaceable seats and a choice of gate surface treatments — hardfacing, nitriding or chrome plating — selected against the abrasive duty.',
+      'KONIN offers uni-directional and bi-directional designs with replaceable seats and a choice of gate surface treatments (hardfacing, nitriding or chrome plating) selected against the abrasive duty.',
     ],
     image: {
       src: '/img/products/knife-gate-valve-lugged-konin.webp',
@@ -850,7 +854,7 @@ export const valves: Product[] = [
       { label: 'Catalogue pressure rating', value: '#150 | #300' },
       { label: 'Design standard', value: 'MSS SP-81' },
       { label: 'Type', value: 'Uni-directional / Bi-directional' },
-      { label: 'Ends', value: 'Wafer, Lugged — lugged to ANSI B16.5 #150' },
+      { label: 'Ends', value: 'Wafer, Lugged (lugged to ANSI B16.5 #150)' },
       {
         label: 'Operation',
         value: 'Handwheel, chain wheel, gear, lever, pneumatic or electric actuator',
@@ -864,9 +868,9 @@ export const valves: Product[] = [
     materials: [{ label: 'Material', value: 'CI, DI, WCB, CF8, CF8M, CG3M, CF3M' }],
     features: [
       'Sharp heavy-duty knife edge at the bottom of the gate cuts through solid sediments and ensures reliable shut-off',
-      'Gate offered with surface coatings based on customer demand — hardfacing, nitriding, chrome plating',
-      'Replaceable seats — easy maintenance at site, longer service life',
-      'Low operating torque — facilitates use of smaller-size actuators, lower initial investment',
+      'Gate offered with surface coatings based on customer demand: hardfacing, nitriding, chrome plating',
+      'Replaceable seats: easy maintenance at site, longer service life',
+      'Low operating torque: facilitates use of smaller-size actuators, lower initial investment',
     ],
     standards: ['MSS SP-81', 'ANSI B16.5'],
     applications: [
@@ -903,7 +907,7 @@ export const valves: Product[] = [
       { label: 'Control', value: 'IP68 solenoid, SCADA compatible' },
     ],
     materials: [
-      { label: 'Body', value: 'Ductile iron — A536 / GGG50' },
+      { label: 'Body', value: 'Ductile iron, A536 / GGG50' },
       { label: 'Stem', value: 'ASTM A276 type SS304' },
       { label: 'Seal ring', value: 'NBR' },
       { label: 'Spring', value: 'Stainless steel' },
@@ -947,7 +951,7 @@ export const valves: Product[] = [
       { label: 'Control', value: 'IP68 solenoid, SCADA compatible' },
     ],
     materials: [
-      { label: 'Body', value: 'Ductile iron — A536 / GGG50' },
+      { label: 'Body', value: 'Ductile iron, A536 / GGG50' },
       { label: 'Stem', value: 'ASTM A276 type SS304' },
       { label: 'Seal ring', value: 'NBR' },
       { label: 'Spring', value: 'Stainless steel' },
@@ -984,7 +988,7 @@ export const valves: Product[] = [
       { label: 'Control', value: 'IP68 solenoid, SCADA compatible' },
     ],
     materials: [
-      { label: 'Body', value: 'Ductile iron — A536 / GGG50' },
+      { label: 'Body', value: 'Ductile iron, A536 / GGG50' },
       { label: 'Stem', value: 'ASTM A276 type SS304' },
       { label: 'Seal ring', value: 'NBR' },
       { label: 'Spring', value: 'Stainless steel' },
@@ -1047,7 +1051,7 @@ export const valves: Product[] = [
       { label: 'Catalogue pressure rating', value: '3000 PSI | 6000 PSI | 10000 PSI | 14000 PSI' },
       { label: 'Design', value: 'Manufacturer standard' },
       { label: 'Testing', value: 'BS 6755 Part 1' },
-      { label: 'End connections', value: 'SWE / SE — both male & female BSPT / NPT / BSP' },
+      { label: 'End connections', value: 'SWE / SE: both male & female BSPT / NPT / BSP' },
     ],
     materials: [
       { label: 'Material of construction', value: 'CS / SS / Titanium / Special alloy' },
@@ -1070,7 +1074,7 @@ export const valves: Product[] = [
     summary:
       'Single and double acting air release valve from 25 mm to 600 mm in CI, CS and gun metal.',
     overview: [
-      'Air valves release accumulated air from the high points of a pipeline and admit air on draindown, protecting the line from air-lock, surge and vacuum collapse — standard fittings on water transmission mains.',
+      'Air valves release accumulated air from the high points of a pipeline and admit air on draindown, protecting the line from air-lock, surge and vacuum collapse. They are standard fittings on water transmission mains.',
     ],
     image: {
       src: '/img/products/air-valve-flanged-konin.webp',

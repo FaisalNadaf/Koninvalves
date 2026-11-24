@@ -25,6 +25,43 @@ export type GalleryPhoto = ProductImage & {
   fill?: boolean
 }
 
+/**
+ * Product photographs kept off the gallery page. They still appear on their
+ * product pages; the gallery drops them because they are older alternates or
+ * near-duplicates of the catalogue photograph it already shows.
+ */
+export const galleryHidden: ReadonlySet<string> = new Set([
+  // Ball valves
+  '/img/products/1-single-piece-ball-valves.webp',
+  '/img/gallery/single-piece-ball-valve.webp',
+  '/img/products/cast-steel-two-piece-cs-2-piece-ball-valves.webp',
+  '/img/products/ball-valve.webp',
+  '/img/gallery/three-piece-ball-valve.webp',
+  '/img/products/forged-ball-valve.webp',
+  // Gate, globe and check valves
+  '/img/products/cast-gate-valves.webp',
+  '/img/gallery/gate-valve.webp',
+  '/img/products/globe-valves1.webp',
+  '/img/gallery/check-valve.webp',
+  '/img/gallery/non-return-valve.webp',
+  // Butterfly valves
+  '/img/products/butterfly-valve.webp',
+  '/img/gallery/butterfly.webp',
+  '/img/products/triple-butterfly-valve-2.webp',
+  // Knife gate valves
+  '/img/products/knife-edge-valve.webp',
+  '/img/products/knife-edge-gate-valve.webp',
+  '/img/gallery/pulp-valve.webp',
+  // Needle valves
+  '/img/products/high-pressure-needle-valves.webp',
+  '/img/products/high-pressure-needle-valves1.webp',
+  '/img/gallery/high-pressure-needle-valve.webp',
+  // Actuated valves
+  '/img/products/automated-butterfly-valve-2.webp',
+  '/img/gallery/triple-butterfly-valve.webp',
+  '/img/gallery/automated-butterfly-valve.webp',
+])
+
 export const galleryPhotos: GalleryPhoto[] = [
   {
     src: '/img/gallery/gear-operated-butterfly-valve-konin.webp',

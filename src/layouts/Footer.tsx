@@ -76,7 +76,7 @@ export default function Footer() {
           {/* ---------------- Brand & contact ---------------- */}
           <StaggerItem direction="from-bottom-left" className="lg:col-span-4">
             <Card className="h-full">
-              <Link to="/" aria-label={`${company.name} — home`} className="inline-block">
+              <Link to="/" aria-label={`${company.name} home`} className="inline-block">
                 <Img src="/img/brand/logo.webp" alt={`${company.name} logo`} className="h-11 w-auto" />
               </Link>
               <p className="mt-5 text-[14px] leading-relaxed text-steel-600">{company.positioning}</p>

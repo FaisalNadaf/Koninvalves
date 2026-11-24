@@ -13,6 +13,7 @@ const NAV = [
   { label: 'Quality', to: '/quality' },
   { label: 'About', to: '/about' },
   { label: 'Clientele', to: '/clientele' },
+  { label: 'Gallery', to: '/gallery' },
   { label: 'Contact', to: '/contact' },
 ]
 
@@ -299,7 +300,7 @@ export default function Navbar() {
         }`}
       >
         <div className="container-k flex h-(--nav-h) items-center justify-between gap-6">
-          <Link to="/" className="shrink-0" aria-label={`${company.name} — home`}>
+          <Link to="/" className="shrink-0" aria-label={`${company.name} home`}>
             <Img
               src="/img/brand/logo.webp"
               alt={`${company.name} logo`}

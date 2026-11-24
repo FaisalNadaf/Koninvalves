@@ -360,7 +360,7 @@ export default function Quality() {
         eyebrow="Quality & certifications"
         title="Every valve proves itself before it ships"
         lead="An ISO 9001:2015 certified company. Testing covers composition, soundness, physical properties and low-temperature impact."
-        image="/img/company/testing-lab.webp"
+        image="/img/heroes/quality-pressure-gauges.webp"
         imageAlt=""
       />
 

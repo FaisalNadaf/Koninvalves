@@ -9,7 +9,7 @@ import { Reveal } from '../lib/motion'
 import { valves, valveGroups } from '../data/valves'
 import { automationProducts } from '../data/automation'
 import { waterSolutions, waterGroups } from '../data/water'
-import { galleryPhotos } from '../data/gallery'
+import { galleryPhotos, galleryHidden } from '../data/gallery'
 import CtaBand from '../sections/CtaBand'
 
 const TRAIL = [
@@ -46,7 +46,7 @@ export default function Gallery() {
     const out: Shot[] = []
     const seen = new Set<string>()
     const push = (s: Shot) => {
-      if (seen.has(s.src)) return
+      if (seen.has(s.src) || galleryHidden.has(s.src)) return
       seen.add(s.src)
       out.push(s)
     }
@@ -57,7 +57,7 @@ export default function Gallery() {
         for (const img of [p.image, ...(p.gallery ?? [])]) {
           push({
             ...img,
-            name: p.shortName ?? p.name,
+            name: img.caption ?? p.shortName ?? p.name,
             group,
             filter: 'Valves',
             href: `/products/valves/${p.slug}`,
@@ -78,6 +78,8 @@ export default function Gallery() {
         group: 'Control Panels',
         filter: 'Automation',
         href: `/products/automation-solutions/${p.slug}`,
+        // Scene photographs, not cut-outs: they fill the tile.
+        fill: true,
       })
     }
     for (const group of waterGroups) {
@@ -118,8 +120,8 @@ export default function Gallery() {
   return (
     <>
       <Seo
-        title="Product Gallery — Valves, Panels & Water Solutions | KONIN"
-        description="Photographs of KONIN industrial valves, electrical control panels and water treatment automation solutions, taken from the KONIN catalogue and product documentation."
+        title="Product Gallery: Valves, Panels & Water Solutions | KONIN"
+        description="Photographs of KONIN industrial valves, electrical control panels and water treatment automation solutions."
         path="/gallery"
         image="/img/gallery/industrial-valves.webp"
         schema={[breadcrumbSchema(TRAIL)]}
@@ -128,8 +130,8 @@ export default function Gallery() {
       <PageHero
         eyebrow="Gallery"
         title="The KONIN range, in detail"
-        lead={`${shots.length} photographs of valves, control panels and water treatment solutions, from KONIN’s own product documentation.`}
-        image="/img/company/plant-5.webp"
+        lead={`${shots.length} photographs of valves, control panels and water treatment solutions.`}
+        image="/img/heroes/gallery-gate-valve-handwheel.webp"
         imageAlt=""
       />
 

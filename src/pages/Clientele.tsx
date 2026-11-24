@@ -28,7 +28,7 @@ export default function Clientele() {
   return (
     <>
       <Seo
-        title="Clientele — Companies Supplied by KONIN Valves"
+        title="Clientele: Companies Supplied by KONIN Valves"
         description={`KONIN Valves supplies ${CLIENT_LOGOS.length} companies across water treatment, oil & gas, refineries, chemical, power, steel and process industries throughout India.`}
         path="/clientele"
         image="/img/company/plant-2.webp"
@@ -39,7 +39,7 @@ export default function Clientele() {
         eyebrow="Clientele"
         title="The plants that run on KONIN"
         lead={`${CLIENT_LOGOS.length} companies across water, energy, process and heavy industry specify KONIN valves and control systems.`}
-        image="/img/company/plant-2.webp"
+        image="/img/heroes/clientele-refinery-coast.webp"
         imageAlt=""
       />
 
@@ -112,7 +112,7 @@ export default function Clientele() {
 
       <CtaBand
         titleLines={['Join the plants', 'that run on KONIN.']}
-        lead="Send the line size, pressure class, media and temperature — our engineering team will come back with a specification and a quotation."
+        lead="Send the line size, pressure class, media and temperature. Our engineering team will come back with a specification and a quotation."
       />
     </>
   )

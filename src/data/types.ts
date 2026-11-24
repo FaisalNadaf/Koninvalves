@@ -6,6 +6,11 @@ export type SpecRow = {
 export type ProductImage = {
   src: string
   alt: string
+  /**
+   * Gallery caption for this photograph, when it shows something other than
+   * the product it is filed under. Defaults to the product's name.
+   */
+  caption?: string
 }
 
 /** A single catalogue item — a valve, a control panel, or a water solution. */
@@ -21,6 +26,11 @@ export type Product = {
   /** Longer body copy for the detail page overview. */
   overview?: string[]
   image: ProductImage
+  /**
+   * KONIN's own catalogue photograph of the product, kept for reference when
+   * `image` is illustrative photography instead. Not rendered at present.
+   */
+  catalogueImage?: ProductImage
   gallery?: ProductImage[]
   /** Headline facts surfaced on the card and the detail hero. */
   quickFacts?: SpecRow[]

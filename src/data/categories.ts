@@ -19,8 +19,8 @@ export const categories: Category[] = [
       'Every valve is built to the applicable API / BIS / BS / DIN / ISO / EN series standard, and 100% of production is dimension and pressure tested before dispatch.',
     ],
     heroImage: {
-      src: '/img/gallery/industrial-valves.webp',
-      alt: 'Range of KONIN industrial valves',
+      src: '/img/heroes/valves-plant-pipework.webp',
+      alt: 'Flanged valves and actuators on plant pipework',
     },
     cardImage: {
       src: '/img/gallery/industrial-valves.webp',
@@ -51,15 +51,15 @@ export const categories: Category[] = [
       'Electrical control panels and automation systems integrated with PLC and SCADA, designed, built and supported by KONIN’s own engineering team.',
     description: [
       'KONIN Automation Solutions designs and builds a comprehensive range of electrical control panels, from power and motor control centres through to APFC, VFD and PLC panels.',
-      'As a brand-independent panel builder, KONIN programs and integrates all established control platforms and supports plants through the full lifecycle — design, commissioning, maintenance and expansion.',
+      'As a brand-independent panel builder, KONIN programs and integrates all established control platforms and supports plants through the full lifecycle: design, commissioning, maintenance and expansion.',
     ],
     heroImage: {
-      src: '/img/automation/power-control-center.webp',
-      alt: 'KONIN electrical control panels',
+      src: '/img/automation/automation-panel-shop-hero.webp',
+      alt: 'Rows of electrical control panel enclosures on a panel-building shop floor',
     },
     cardImage: {
-      src: '/img/automation/motor-control-center.webp',
-      alt: 'KONIN motor control centre panel with starter modules',
+      src: '/img/automation/motor-control-center-modules.webp',
+      alt: 'Rows of motor starter and protection modules in an open motor control centre',
     },
     groups: [
       { name: 'Power & Distribution', blurb: 'PCC, SDB and lighting distribution boards' },
@@ -77,14 +77,14 @@ export const categories: Category[] = [
     shortName: 'Water Treatment',
     tagline: 'Source to distribution',
     summary:
-      'Automation for dams, canals, pump houses, WTP, ETP, STP and desalination — with pipeline and source condition monitoring.',
+      'Automation for dams, canals, pump houses, WTP, ETP, STP and desalination, with pipeline and source condition monitoring.',
     description: [
       'KONIN delivers control and monitoring solutions across the water cycle: gate and canal control at source, pump house and distribution network automation, and process control for water, effluent, sewage and desalination plants.',
       'Remote sites are linked by cellular, radio and VSAT communication, and can run on autonomous solar power where grid supply is not available.',
     ],
     heroImage: {
-      src: '/img/water/water-treatment-plant-automation.webp',
-      alt: 'Water treatment plant automation',
+      src: '/img/heroes/water-treatment-clarifiers-aerial.webp',
+      alt: 'Aerial view of a treatment plant with circular clarifiers',
     },
     cardImage: {
       src: '/img/industries/wtp.webp',

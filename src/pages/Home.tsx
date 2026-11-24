@@ -4,6 +4,7 @@ import Hero from '../sections/home/Hero'
 import CapabilityPanels from '../sections/home/CapabilityPanels'
 import OneRoof from '../sections/home/OneRoof'
 import IndustriesReveal from '../sections/home/IndustriesReveal'
+import GlobalReach from '../sections/home/GlobalReach'
 import TrustBand from '../sections/home/TrustBand'
 import CtaBand from '../sections/CtaBand'
 
@@ -38,6 +39,7 @@ export default function Home() {
       <OneRoof />
       <CapabilityPanels />
       <IndustriesReveal />
+      <GlobalReach />
       <TrustBand />
       <CtaBand />
     </>

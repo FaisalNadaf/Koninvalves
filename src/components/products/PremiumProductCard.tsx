@@ -53,14 +53,13 @@ const orbVariants: Variants = {
  * How the head of a card is filled when the product has no cut-out, which comes
  * down entirely to how the category was photographed.
  *
- * `black` — the automation panels are all shot against a black studio ground,
- * so the card's ground is black too and the two meet invisibly; a cabinet reads
- * as one object rather than a rectangle pasted onto a card. It has to be pure
- * black, not `ink-950`, or the seam shows.
+ * `black` — for cut-out product shots on a black studio ground: the card's
+ * ground is black too, so the two meet invisibly. It has to be pure black, not
+ * `ink-950`, or the seam shows.
  *
- * `cover` — the water solutions are scene photographs and system schematics,
- * already trimmed to their own edges. Contained they left a card that was mostly
- * margin, so they fill it instead. The crop is taken from the top: the one
+ * `cover` — the water solutions and the automation panels are scene
+ * photographs and system schematics, already trimmed to their own edges.
+ * Contained they left a card that was mostly margin, so they fill it instead. The crop is taken from the top: the one
  * portrait image in the set is a pump-house photograph stacked above a schematic,
  * and the photograph is the half worth showing at thumbnail size.
  *
@@ -70,7 +69,7 @@ const orbVariants: Variants = {
  */
 const STAGE: Record<CategoryKey, 'black' | 'cover' | 'blur'> = {
   valves: 'blur',
-  'automation-solutions': 'black',
+  'automation-solutions': 'cover',
   'water-treatment-solutions': 'cover',
 }
 
@@ -119,7 +118,7 @@ export function PremiumProductCard({
       >
         <Link
           to={href}
-          aria-label={`${product.name} — view specification`}
+          aria-label={`${product.name}: view specification`}
           className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-steel-150 bg-white shadow-e2 transition-shadow duration-500 ease-out-expo group-hover:border-brand-200 group-hover:shadow-e4"
           style={{ transformStyle: 'preserve-3d' }}
         >

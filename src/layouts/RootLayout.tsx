@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
+import { MotionConfig } from 'framer-motion'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import { Cursor, PageTransition, ScrollProgress, SmoothScroll, scrollToTop } from '../components/fx'
@@ -41,7 +42,11 @@ function RevealFailsafe() {
 
 export default function RootLayout() {
   return (
-    <>
+    /* Site-wide backstop for the OS reduced-motion setting. Most components
+       already check it themselves; with "user", any motion element that does
+       not still drops its transform and layout animation (opacity is kept). The
+       library's own default is "never". */
+    <MotionConfig reducedMotion="user">
       <RevealFailsafe />
       <SmoothScroll />
       <ScrollToTop />
@@ -53,6 +58,6 @@ export default function RootLayout() {
         <Outlet />
       </main>
       <Footer />
-    </>
+    </MotionConfig>
   )
 }

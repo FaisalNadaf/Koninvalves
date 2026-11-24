@@ -82,7 +82,7 @@ export default function CapabilityPanels() {
                 <TiltCard className="h-full" max={5} lift={8} radius="rounded-3xl">
                   <Link
                     to={cat.path}
-                    aria-label={`${cat.name} — ${count} products`}
+                    aria-label={`${cat.name}: ${count} products`}
                     className="relative flex h-full flex-col overflow-hidden rounded-3xl border border-steel-150 bg-white shadow-e2 transition-shadow duration-500 group-hover:border-brand-200 group-hover:shadow-e5"
                   >
                     {/* Brand edge that draws across the head of the card */}

@@ -9,17 +9,23 @@ import { Reveal, Stagger, StaggerItem } from '../lib/motion'
  *
  * TRANSPORT — read before changing:
  *
- * There is no backend in this project, and none is faked. The form composes a
- * structured message and hands it to the visitor's mail client addressed to
- * KONIN's published sales address, so it genuinely works as shipped.
+ * The site has no backend, so submissions go through FormSubmit
+ * (formsubmit.co), which emails each enquiry to KONIN's sales address. No
+ * account or key: the address is the endpoint.
  *
- * To post to a server instead, set FORM_ENDPOINT to the URL. The legacy site
- * posted to:
- *   https://www.koninvalve.com/TestResult_attach_captcha_code.php
- * That endpoint also expected captcha / OTP fields that are not reproduced
- * here, so it is left disconnected rather than wired up to fail silently.
+ * ONE-TIME ACTIVATION: the very first submission does not deliver. FormSubmit
+ * instead emails an "Activate form" link to the address; someone with access
+ * to that inbox must click it once. After that every enquiry arrives as an
+ * email, with the visitor's address set as Reply-To.
+ *
+ * Optional hardening, after activation: FormSubmit's activation email also
+ * gives a random alias for the address. Put it in place of the address below
+ * and the address no longer appears in the page source.
+ *
+ * If the request fails (network, service down), the form says so and gives
+ * the email address and phone number, so no enquiry is lost silently.
  */
-const FORM_ENDPOINT: string | null = null
+const FORM_ENDPOINT = `https://formsubmit.co/ajax/${company.emails[0]}`
 
 type Status = 'idle' | 'sending' | 'sent' | 'error'
 
@@ -62,33 +68,39 @@ export default function EnquiryForm() {
       return
     }
 
-    setStatus('sending')
-
-    const lines = [
-      `Name: ${get('name')}`,
-      `Company: ${get('company') || '—'}`,
-      `Email: ${get('email')}`,
-      `Phone: ${get('phone') || '—'}`,
-      `Product / Solution: ${get('product') || '—'}`,
-      '',
-      'Requirement:',
-      get('requirement'),
-    ]
-      .filter(Boolean)
-      .join('\n')
-
-    if (FORM_ENDPOINT) {
-      fetch(FORM_ENDPOINT, { method: 'POST', body: data })
-        .then((r) => setStatus(r.ok ? 'sent' : 'error'))
-        .catch(() => setStatus('error'))
+    // Spam trap: a field people never see. Bots fill it; pretend it worked.
+    if (get('_honey')) {
+      setStatus('sent')
       return
     }
 
-    const subject = `Enquiry from ${get('name')}${get('company') ? ` — ${get('company')}` : ''}`
-    window.location.href = `mailto:${company.emails[0]}?subject=${encodeURIComponent(
-      subject
-    )}&body=${encodeURIComponent(lines)}`
-    setStatus('sent')
+    setStatus('sending')
+
+    const name = get('name')
+    const org = get('company')
+    fetch(FORM_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({
+        Name: name,
+        Company: org || 'Not provided',
+        Email: get('email'),
+        Phone: get('phone') || 'Not provided',
+        'Product / Solution': get('product') || 'Not provided',
+        Requirement: get('requirement'),
+        _subject: `Website enquiry from ${name}${org ? `, ${org}` : ''}`,
+        _replyto: get('email'),
+        _template: 'table',
+        _captcha: 'false',
+      }),
+    })
+      .then(async (r) => {
+        const json = (await r.json().catch(() => ({}))) as { success?: boolean | string }
+        const ok = r.ok && (json.success === true || json.success === 'true')
+        setStatus(ok ? 'sent' : 'error')
+        if (ok) form.reset()
+      })
+      .catch(() => setStatus('error'))
   }
 
   if (status === 'sent') {
@@ -104,10 +116,10 @@ export default function EnquiryForm() {
         <span className="grid size-12 place-items-center rounded-full border border-brand-100 bg-linear-to-b from-brand-50 to-white text-brand-700 shadow-e1">
           <CheckCircle2 className="size-6" aria-hidden="true" />
         </span>
-        <h3 className="font-display text-2xl font-bold text-ink-900">Your enquiry is ready</h3>
+        <h3 className="font-display text-2xl font-bold text-ink-900">Thank you, your enquiry is sent</h3>
         <p className="text-[14.5px] leading-relaxed text-steel-600">
-          We have opened your email client with the enquiry filled in send it and our
-          engineering team will come back to you. If nothing opened, email us directly at{' '}
+          It has gone to our sales team, and our engineers will come back to you with a
+          specification and quotation. For anything urgent, email{' '}
           <a
             href={`mailto:${company.emails[0]}`}
             className="font-semibold text-brand-700 underline underline-offset-2"
@@ -138,8 +150,14 @@ export default function EnquiryForm() {
     <form
       onSubmit={handleSubmit}
       noValidate
-      className="rounded-3xl border border-steel-150 bg-white p-6 shadow-e3 sm:p-9"
+      className="relative rounded-3xl border border-steel-150 bg-white p-6 shadow-e3 sm:p-9"
     >
+      {/* Spam trap: off screen and out of the tab order, so people never fill
+          it; form-filling bots do. */}
+      <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
+        <label htmlFor="f-honey">Leave this field empty</label>
+        <input id="f-honey" name="_honey" type="text" tabIndex={-1} autoComplete="off" />
+      </div>
       {/* The three lines of the ask, then the fields — each element animates as
           itself rather than inside a wrapper, so the margins that set the
           rhythm of the block are the ones that were always there.
@@ -166,7 +184,7 @@ export default function EnquiryForm() {
           className="mt-3 text-[14px] leading-relaxed text-steel-500"
         >
           Fields marked <span aria-hidden="true">*</span> are required. The more duty detail you
-          give media, temperature, pressure class, line size the faster we can specify.
+          give (media, temperature, pressure class, line size), the faster we can specify.
         </StaggerItem>
       </Stagger>
 
@@ -334,7 +352,7 @@ export default function EnquiryForm() {
           />
         </button>
         <p className="text-[12.5px] text-steel-500">
-          Opens your email client addressed to {company.emails[0]}
+          Sent directly to our sales team at {company.emails[0]}
         </p>
       </Reveal>
 
@@ -343,8 +361,18 @@ export default function EnquiryForm() {
           role="alert"
           className="mt-5 flex items-center gap-2 rounded-xl border border-signal-100 bg-signal-50 px-4 py-3 text-[13px] font-medium text-signal-700"
         >
-          <AlertCircle className="size-4" aria-hidden="true" />
-          Something went wrong. Please email {company.emails[0]} directly.
+          <AlertCircle className="size-4 shrink-0" aria-hidden="true" />
+          <span>
+            Your enquiry could not be sent. Please try again, or email{' '}
+            <a href={`mailto:${company.emails[0]}`} className="underline underline-offset-2">
+              {company.emails[0]}
+            </a>{' '}
+            or call{' '}
+            <a href={`tel:${company.phones[0].replace(/s/g, '')}`} className="underline underline-offset-2">
+              {company.phones[0]}
+            </a>
+            .
+          </span>
         </p>
       )}
     </form>

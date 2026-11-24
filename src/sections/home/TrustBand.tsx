@@ -14,7 +14,7 @@ import { LineReveal, Reveal, rowDirection, Stagger, StaggerItem } from '../../li
  */
 const CLIENT_LOGOS = Array.from(
   { length: 31 },
-  (_, i) => `/img/clients/${String(i + 1).padStart(2, '0')}.webp`
+  (_, i) => `/img/clients-tight/${String(i + 1).padStart(2, '0')}.webp`
 )
 
 /**
@@ -37,28 +37,25 @@ const WHY_ICONS = [Headset, Layers, Clock, Tag, Cog]
  */
 function LogoRow({ logos, reverse, speed }: { logos: string[]; reverse?: boolean; speed: number }) {
   return (
-    <Marquee speed={speed} reverse={reverse}>
+    <Marquee speed={speed} reverse={reverse} className="py-2">
       {logos.map((src) => (
         <span
           key={src}
-          className="mx-2.5 flex h-32 w-56 shrink-0 items-center justify-center rounded-2xl border border-steel-150 bg-white p-5 shadow-e1 transition-all duration-500 ease-out-expo hover:-translate-y-1.5 hover:border-brand-200 hover:shadow-e4 sm:mx-3 sm:h-36 sm:w-64 sm:p-6"
+          className="mx-2 flex h-24 w-44 shrink-0 items-center justify-center rounded-2xl border border-steel-150 bg-white px-4 py-3 shadow-e1 transition-all duration-500 ease-out-expo hover:-translate-y-1 hover:border-brand-200 hover:shadow-e4 sm:mx-2.5 sm:h-28 sm:w-52 sm:px-5 sm:py-3.5"
         >
           {/* Full colour, at full strength. These marks are the evidence the
               band exists to show, and a wall of small grey logos reads as
-              filler. Bounded rather than stretched: `max-*` lets a mark sit at
-              its own size when it is smaller than the tile.
+              filler. Contained, never stretched: `object-contain` keeps each
+              mark in proportion inside the tile.
 
-              The tile is sized to the source rather than to taste. Every client
-              mark is a 300 x 200 file, so at 2x device pixels anything wider
-              than 150 CSS px is being upscaled. A 96 px content height puts a
-              typical mark at 144 x 96 — 288 device px against 300 of source —
-              which is as large as these files go before they start to soften.
-              Bigger tiles need bigger artwork, not more CSS. */}
+              The marks come from /img/clients-tight, cropped to the logo
+              itself, so a small tile is filled by the mark rather than by the
+              white margin each 300 x 200 source file carried. */}
           <Img
             src={src}
             alt=""
-            sizes="256px"
-            className="max-h-full max-w-full object-contain transition-transform duration-500 ease-out-expo hover:scale-105"
+            sizes="208px"
+            className="size-full object-contain transition-transform duration-500 ease-out-expo hover:scale-105"
           />
         </span>
       ))}
@@ -136,22 +133,25 @@ export default function TrustBand() {
       {/* ---------------- Client wall ---------------- */}
       <div className="relative border-t border-steel-150 bg-white py-12 sm:py-16">
         <div className="container-k">
-          {/* The two ends of the rule move apart from each other, which is the
-              same idea the row itself states: a label on one side, a count on
-              the other. */}
-          <Stagger className="flex flex-wrap items-baseline justify-between gap-4" step={0.1}>
-            <StaggerItem as="p" direction="from-left" className="mono-label text-steel-400">
-              Trusted by industry
-            </StaggerItem>
-         
-          </Stagger>
+          <div className="mx-auto max-w-2xl text-center">
+            <Reveal>
+              <Eyebrow>Our clients</Eyebrow>
+            </Reveal>
+            <LineReveal
+              as="h2"
+              id="clients-title"
+              className="h-section mt-5 text-ink-900"
+              lines={['Trusted by the plants', 'that cannot stop.']}
+              accentClassName="text-gradient"
+            />
+          </div>
         </div>
 
         {/* The marks are already travelling, so the wall only fades up. */}
         <Reveal
           direction="blur"
           amount={0.15}
-          className="mt-9 space-y-4"
+          className="mt-8 space-y-0 sm:space-y-1"
           role="img"
           aria-label="Logos of companies supplied by KONIN Valves"
         >

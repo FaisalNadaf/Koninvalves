@@ -25,7 +25,7 @@ export default function Contact() {
   return (
     <>
       <Seo
-        title="Contact KONIN Valves — Belagavi, Karnataka, India"
+        title="Contact KONIN Valves | Belagavi, Karnataka, India"
         description={`Contact KONIN Valves, ${company.address.city}, ${company.address.region}. Call ${company.phones[0]} or email ${company.emails[0]} for valve, automation and water enquiries.`}
         path="/contact"
         schema={[
@@ -44,8 +44,8 @@ export default function Contact() {
       <PageHero
         eyebrow="Contact"
         title="Send us the duty. We’ll send back a specification."
-        lead="Our engineering team answers technical enquiries directly — no call-centre in between."
-        image="/img/company/plant-3.webp"
+        lead="Our engineering team answers technical enquiries directly, with no call-centre in between."
+        image="/img/heroes/contact-control-room.webp"
         imageAlt=""
       />
 

@@ -131,9 +131,26 @@ export const company = {
     full: 'B-102, Angol Industrial Estate, Udyambag, Belagavi, Karnataka 590008, India',
   },
 
-  phones: ['+91 94803 14844', '+91 70198 33232', '+91 70195 22742'],
+  phones: ['+91 94803 14844', '+91 70195 22742'],
   emails: ['sales@koninvalve.com', 'koninvalves@gmail.com', 'sales.koninvalves@gmail.com'],
   linkedin: 'https://in.linkedin.com/company/konin-valves',
+
+  /**
+   * Countries KONIN supplies, shown as the flag marquee on the homepage.
+   * `code` is the ISO 3166-1 alpha-2 code; it picks the flag. Add or remove a
+   * country here and the marquee follows.
+   */
+  supplyCountries: [
+    { code: 'IN', name: 'India', region: 'Manufacturing base' },
+    { code: 'AE', name: 'United Arab Emirates', region: 'Gulf' },
+    { code: 'SA', name: 'Saudi Arabia', region: 'Gulf' },
+    { code: 'QA', name: 'Qatar', region: 'Gulf' },
+    { code: 'OM', name: 'Oman', region: 'Gulf' },
+    { code: 'KW', name: 'Kuwait', region: 'Gulf' },
+    { code: 'BH', name: 'Bahrain', region: 'Gulf' },
+    { code: 'US', name: 'United States', region: 'North America' },
+    { code: 'ZA', name: 'South Africa', region: 'Africa' },
+  ],
 
   // Source: legacy certificates.html + konin-valves-pdf.pdf p4 badges
   certifications: [

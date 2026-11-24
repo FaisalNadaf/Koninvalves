@@ -155,7 +155,7 @@ export default function OneRoof() {
                   <StaggerItem key={cat.key} direction="left">
                     <Link
                       to={cat.path}
-                      aria-label={`${cat.name} — ${cat.tagline}`}
+                      aria-label={`${cat.name}: ${cat.tagline}`}
                       className="group relative flex h-28 overflow-hidden rounded-2xl border border-steel-150 bg-white shadow-e2 transition-all duration-500 ease-out-expo hover:-translate-y-0.5 hover:border-brand-200 hover:shadow-e4 sm:h-32 lg:h-38"
                     >
                       {/* Brand edge that draws down the leading side on hover */}
